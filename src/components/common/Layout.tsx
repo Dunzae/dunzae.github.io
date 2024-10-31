@@ -23,12 +23,12 @@ function LayoutComponent({
                     <div className="fixed bottom-0 left-0 right-0 z-[1001] bg-white lg:static lg:w-[100px] lg:full">
                         <MenubarComponent />
                     </div>
-                    <div className={`h-full pb-[100px] lg:pb-0 lg:w-[430px] lg:absolute lg:left-full lg:h-dvh lg:bg-white lg:z-[1000] ${slideMenuHidden ? "hidden" : "flex"}`}>
+                    <div className={`fixed top-0 left-0 right-0 bottom-0 z-[1000] lg:pb-0 lg:w-[430px] lg:absolute lg:left-full lg:h-dvh lg:bg-white lg:z-[1000] ${slideMenuHidden ? "hidden" : "flex"}`}>
                         <SlideMenuComponent hidden={false} />
                     </div>
                 </div>
             </div>
-            <div className="w-full h-full overflow-y-scroll relative z-1 scroll-">
+            <div className={`w-full h-full relative z-1 overflow-y-scroll`}>
                 {children}
             </div>
         </div>
