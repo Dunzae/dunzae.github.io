@@ -6,6 +6,8 @@ node_modules/
 # Ignore environment variables and secrets
 .env
 
+/.vscode
+
 # Ignore build folder
 /dist
 /build
