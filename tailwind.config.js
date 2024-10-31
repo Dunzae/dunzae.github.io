@@ -5,7 +5,9 @@ module.exports = {
     fontFamily: {
       'Roboto' : ['Roboto'],
       'Agdasima' : ['Agdasima'],
-      'Titillium' : ['Titillium Web']
+      'Titillium' : ['Titillium Web'],
+      'NanumGothic' : ['NanumGothic'],
+      'Poppins' : ['Poppins']
     },
     extend: {},
   },
