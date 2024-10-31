@@ -11,7 +11,7 @@ function SlideMenuComponent({
     hidden
 }: ISlideMenuComponent) {
     return (
-        <div style={{ scrollbarWidth: 'thin' }}
+        <div
             className={"h-full w-full flex-shirink-0 overflow-y-scroll lg:bg-white lg:border-r-2 lg:shadow-[4px_0_24px_rgba(0,0,0,0.15)] " +
                 `${hidden ? 'hidden' : 'flex'}`
             }
