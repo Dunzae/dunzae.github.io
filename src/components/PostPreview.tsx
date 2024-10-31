@@ -1,4 +1,4 @@
-import ProfileImage from "@assets/images/background.png"
+import ProfileImage from "@assets/images/profile.jpg"
 import BackgroundImage from "@assets/images/background.png";
 import { FcLike } from "react-icons/fc";
 import { IoIosMore } from "react-icons/io";
@@ -15,7 +15,7 @@ function PostPreviewComponent({
             <div className="flex flex-col">
                 <div className="flex flex-row items-center mb-2 lg:mb-4">
                     <span>
-                        <img src={ProfileImage} width={30} height={30} className="rounded-[50%] mr-2" />
+                        <img src={ProfileImage} className="w-[30px] h-[30px] rounded-[50%] mr-2" />
                     </span>
                     <span className="text-[14px] text-[#292929]">프로필 이름</span>
                     <span className="mx-2">·</span>
