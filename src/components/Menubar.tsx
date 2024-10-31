@@ -1,46 +1,61 @@
 import {
     IoHome, IoHomeOutline,
-    IoPerson, IoPersonOutline, IoSettingsOutline, IoSettings 
+    IoPerson, IoPersonOutline, IoSettingsOutline, IoSettings
 } from "react-icons/io5";
 import { IoMdNotifications, IoMdNotificationsOutline } from "react-icons/io";
-import { BsChatSquareText, BsChatSquareTextFill } from "react-icons/bs";
-import {  } from "react-icons/io5";
+import { } from "react-icons/io5";
+import { HiOutlinePencilSquare, HiPencilSquare } from "react-icons/hi2";
 
 import { useNavigate } from "react-router-dom";
+import { setLocation, setSlideMenuHidden } from "@slices/menu";
+import { SyntheticEvent, useCallback } from "react";
+import { useAppDispatch, useAppSelector } from "@slices/store"
 
-interface IMenubarComponent {
-    currentPath: string,
-    setNotificationClicked : React.Dispatch<React.SetStateAction<boolean>>
-}
-
-function MenubarComponent({
-    currentPath,
-    setNotificationClicked
-}: IMenubarComponent) {
+function MenubarComponent() {
+    const location = useAppSelector(({ menu }) => menu.location);
+    const slideMenuHidden = useAppSelector(({ menu }) => menu.slideMenuHidden);
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
+
+    const onClick = useCallback((e: SyntheticEvent<HTMLLIElement>) => {
+        const to = "/" + e.currentTarget.dataset.to;
+        if (to !== undefined) {
+            if (["/", "/notification", "/write", "/profile", "/setting"].includes(to)) {
+                dispatch(setLocation(to));
+                if (to === "/notification") {
+                    setSlideMenuHidden(!slideMenuHidden);
+                }
+
+                if (e.currentTarget.dataset.move === 'true') {
+                    navigate(to);
+                }
+            }
+        }
+
+    }, [location, slideMenuHidden])
 
     return (
         <div className="border-t border-t-[#E6E6E6] lg:h-full lg:border-t-0 lg:border-r lg:border-r-[#E6E6E6] lg:flex lg:items-center">
             <ul className="w-full flex flex-row flex-grow-0 bg-white lg:flex lg:flex-col lg:items-center lg:py-5">
-                <li onClick={() => navigate("/")} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
-                    {currentPath === "/" ? <IoHome size={30} /> : <IoHomeOutline size={30} />}
+                <li data-move={true} data-to="" onClick={onClick} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
+                    {location === "/" ? <IoHome size={30} /> : <IoHomeOutline size={30} />}
                 </li>
-                <li className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer" 
-                 onClick={() => setNotificationClicked(_s => !_s)}
+                <li data-move={false} data-to="notification" className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer"
+                    onClick={onClick}
                 >
-                    {currentPath === "/notification" ? <IoMdNotifications size={30} /> : <IoMdNotificationsOutline size={30} />}
+                    {location === "/notification" ? <IoMdNotifications size={30} /> : <IoMdNotificationsOutline size={30} />}
                 </li>
-                <li onClick={() => navigate("/chat")} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
-                    {currentPath === "/chat" ? <BsChatSquareTextFill size={30} /> : <BsChatSquareText size={30} />}
+                <li data-move={false} data-to="write" onClick={onClick} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
+                    {location === "/write" ? <HiPencilSquare size={30} /> : <HiOutlinePencilSquare size={30} />}
                 </li>
-                <li onClick={() => navigate("/profile")} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
-                    {currentPath === "/profile" ? <IoPerson size={30} /> : <IoPersonOutline size={30} />}
+                <li data-move={false} data-to="profile" onClick={onClick} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
+                    {location === "/profile" ? <IoPerson size={30} /> : <IoPersonOutline size={30} />}
                 </li>
-                <li className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
-                    {currentPath === "/profile" ? <IoSettings  size={30} /> : <IoSettingsOutline size={30} />}
+                <li data-move={false} data-to="setting" onClick={onClick} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
+                    {location === "/setting" ? <IoSettings size={30} /> : <IoSettingsOutline size={30} />}
                 </li>
             </ul>
-        </div>
+        </div >
 
     )
 }
