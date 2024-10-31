@@ -30,6 +30,7 @@ module.exports = {
         alias: {
             '@pages': path.resolve(__dirname, 'src/pages'),
             '@assets': path.resolve(__dirname, 'src/assets'),
+            '@slices': path.resolve(__dirname, 'src/slices'),
             '@constants': path.resolve(__dirname, 'src/constants'),
             '@components': path.resolve(__dirname, 'src/components'),
             '@containers': path.resolve(__dirname, 'src/containers'),
