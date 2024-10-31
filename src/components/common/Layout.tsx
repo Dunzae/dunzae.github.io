@@ -1,7 +1,6 @@
-import { useState } from "react";
-import SideBarComponent from "./SideBar";
-import MenubarComponent from "@components/Menubar";
-import SlideMenuComponent from "./SlideMenu";
+import SideBarComponent from "@components/common/SideBar";
+import MenubarComponent from "@components/common/menu/Menubar";
+import SlideMenuComponent from "@components/common/menu/SlideMenu";
 import { useAppSelector } from "@slices/store";
 
 interface ILayoutComponent {

@@ -1,5 +1,5 @@
-import TitleComponent from "@components/Title";
-import ProfileComponent from "@components/Profile";
+import TitleComponent from "@components/common/Title";
+import ProfileComponent from "@components/common/Profile";
 
 function SideBarComponent() {
     return (
