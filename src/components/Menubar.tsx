@@ -17,13 +17,15 @@ function MenubarComponent() {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
+    
+
     const onClick = useCallback((e: SyntheticEvent<HTMLLIElement>) => {
         const to = "/" + e.currentTarget.dataset.to;
         if (to !== undefined) {
             if (["/", "/notification", "/write", "/profile", "/setting"].includes(to)) {
                 dispatch(setLocation(to));
                 if (to === "/notification") {
-                    setSlideMenuHidden(!slideMenuHidden);
+                    dispatch(setSlideMenuHidden(!slideMenuHidden));
                 }
 
                 if (e.currentTarget.dataset.move === 'true') {
@@ -45,10 +47,10 @@ function MenubarComponent() {
                 >
                     {location === "/notification" ? <IoMdNotifications size={30} /> : <IoMdNotificationsOutline size={30} />}
                 </li>
-                <li data-move={false} data-to="write" onClick={onClick} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
+                <li data-move={true} data-to="write" onClick={onClick} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
                     {location === "/write" ? <HiPencilSquare size={30} /> : <HiOutlinePencilSquare size={30} />}
                 </li>
-                <li data-move={false} data-to="profile" onClick={onClick} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
+                <li data-move={true} data-to="profile" onClick={onClick} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
                     {location === "/profile" ? <IoPerson size={30} /> : <IoPersonOutline size={30} />}
                 </li>
                 <li data-move={false} data-to="setting" onClick={onClick} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
