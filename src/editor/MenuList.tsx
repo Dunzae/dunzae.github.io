@@ -6,15 +6,18 @@ import BlockQuoteIcon from "@assets/icons/blockquote.png"
 import BulletIcon from "@assets/icons/bullet.png"
 import CodeIcon from "@assets/icons/code.png"
 import ImageIcon from "@assets/icons/image.png"
+import YoutubeIcon from "@assets/icons/youtube.png"
 import MenuCell from "./MenuCell";
 import type { Editor } from "@tiptap/react";
-import { ChangeEvent, SyntheticEvent, useRef } from "react";
+import { ChangeEvent, SyntheticEvent, useRef, useState } from "react";
 
 interface IMenuList {
     editor: Editor
 }
 
 function MenuList({ editor }: IMenuList) {
+    const [height, setHeight] = useState(480)
+    const [width, setWidth] = useState(640)
     const ref = useRef<HTMLInputElement>(null);
 
     const todoOnClick = () => editor.chain().focus().toggleTaskList().run()
@@ -28,19 +31,29 @@ function MenuList({ editor }: IMenuList) {
             ref.current.click();
         }
     }
-    // const imageOnClick = () => editor.chain().focus().setImage({ src : url}).run()
+    // const youtubeOnClick = () => {
+    //     if (url) {
+    //         editor.commands.setYoutubeVideo({
+    //             src: url,
+    //             width: Math.max(320, width) || 640,
+    //             height: Math.max(180, height) || 480,
+    //         })
+    //     }
+    // }
 
     return (
         <div className="p-2 flex flex-col w-full h-auto bg-white rounded-[20px]">
             <div>
-                <input className="hidden" type="file" id="lavel" accept="image/png, image/jpeg" ref={ref}  onChange={(e) => {
-                    if(e.target && e.target.files) {
-                        const file = e.target.files[0];
-                        const imageUrl = URL.createObjectURL(file);
+                <input className="hidden" type="file" multiple ref={ref} onChange={(e) => {
+                    if (e.target && e.target.files) {      
+                        for(let i=0; i<e.target.files.length; i++) {
+                            let file = e.target.files[i];
+                            let imageUrl = URL.createObjectURL(file);
 
-                        editor.chain().focus().setImage({src : imageUrl}).run();
+                            editor.chain().focus().createParagraphNear().setImage({src : imageUrl}).run();
+                        }
                     }
-                }}/>
+                }} />
             </div>
             <div className="mb-2">
                 <MenuCell
@@ -106,6 +119,14 @@ function MenuList({ editor }: IMenuList) {
                     onClick={codeOnClick}
                 />
             </div>
+            {/* <div className="mb-2">
+                <MenuCell
+                    icon={YoutubeIcon}
+                    title="유튜브"
+                    body="유투브 동영상을 추가하세요."
+                    onClick={youtubeOnClick}
+                />
+            </div> */}
         </div>
     )
 }
