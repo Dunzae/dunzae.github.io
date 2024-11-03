@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Image from '@tiptap/extension-image'
 import BulletList from '@tiptap/extension-bullet-list'
 import ListItem from '@tiptap/extension-list-item'
 import Blockquote from '@tiptap/extension-blockquote'
@@ -32,6 +33,7 @@ export default () => {
     const [content, setContent] = useState('');
     const editor = useEditor({
         extensions: [
+            Image,
             ListItem,
             BulletList,
             Document,
