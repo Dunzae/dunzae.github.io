@@ -1,11 +1,11 @@
-interface IPopupCell {
+interface IMenuCell {
     icon : string;
     title : string;
     body : string;
     onClick : () => void;
 }
 
-function PopupCell({icon, title, body, onClick} : IPopupCell) {
+function MenuCell({icon, title, body, onClick} : IMenuCell) {
     return (
         <div className="flex gap-2 ite cursor-pointer" onClick={onClick}>
                 <div className="w-[50px] h-[50px] flex-shrink-0 shadow-sm rounded-md border border-slate-200">
@@ -19,4 +19,4 @@ function PopupCell({icon, title, body, onClick} : IPopupCell) {
     )
 }
 
-export default PopupCell;
+export default MenuCell;
