@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import menu from "@slices/menu";
+import editor from "@slices/editor"
 
 export const store = configureStore({
-  reducer: { menu },
+  reducer: { menu, editor },
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
