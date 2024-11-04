@@ -17,8 +17,6 @@ function MenubarComponent() {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    
-
     const onClick = useCallback((e: SyntheticEvent<HTMLLIElement>) => {
         const to = "/" + e.currentTarget.dataset.to;
         if (to !== undefined) {
@@ -26,6 +24,8 @@ function MenubarComponent() {
                 dispatch(setLocation(to));
                 if (to === "/notification") {
                     dispatch(setSlideMenuHidden(!slideMenuHidden));
+                } else {
+                    dispatch(setSlideMenuHidden(true))
                 }
 
                 if (e.currentTarget.dataset.move === 'true') {
