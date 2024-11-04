@@ -7,13 +7,15 @@ import { useAppSelector } from '@slices/store';
 
 
 function WritePage() {
+    const editor = useAppSelector(({editor}) => editor.editor)
     const fontType = useAppSelector(({ editor }) => editor.fontType);
     const fontWeight = useAppSelector(({ editor }) => editor.fontWeight);
 
     return (
         <LayoutComponent>
             <div className="flex flex-col bg-[#f2f2f2] lg:flex-row lg:h-dvh">
-                <div className="flex-grow min-h-[300px] overflow-x-hidden my-4 p-4 bg-white lg:m-5"
+                <div className="flex-grow min-h-[300px] overflow-x-hidden my-4 p-4 bg-white lg:m-5 cursor-pointer"
+                    onClick={() => editor?.commands.focus()}
                     style={{
                         fontFamily: fontType,
                         fontWeight: fontWeight,
