@@ -1,12 +1,44 @@
 import LayoutComponent from "@components/common/Layout";
-import Editor from "../editor/Editor";
+import Editor from '@editor/Editor';
+import AddBlock from '@editor/AddBlock';
+import GlobalTool from '@editor/GlobalTool';
+import ButtonGroup from "@editor/ButtonGroup";
+import { useAppSelector } from '@slices/store';
+
 
 function WritePage() {
+    const fontType = useAppSelector(({ editor }) => editor.fontType);
+    const fontWeight = useAppSelector(({ editor }) => editor.fontWeight);
+
     return (
         <LayoutComponent>
-            <div className="">
-                <Editor />
-            </div>
+            <div className="flex flex-col bg-[#f2f2f2] lg:flex-row lg:h-dvh">
+                <div className="flex-grow min-h-[300px] overflow-x-hidden my-4 p-4 bg-white lg:m-5"
+                    style={{
+                        fontFamily: fontType,
+                        fontWeight: fontWeight,
+                    }}
+                >
+                    <Editor />
+                </div>
+                <div className="py-5 border-l border-l-gray w-full  flex flex-col overflow-hidden gap-4 lg:w-[300px] lg:h-full ">
+                    <div className="p-2 flex flex-col w-full min-h-[300px] flex-shrink bg-white rounded-[20px]">
+                        <AddBlock />
+                    </div>
+                    <div className="px-3 py-3 flex-grow-0 overflow-y-auto bg-white font-Roboto flex-shrink-0"
+                        style={{
+                            scrollbarWidth: 'none'
+                        }}
+                    >
+                        <GlobalTool />
+                    </div>
+
+                    <div className="flex flex-grow flex-row gap-2 justify-center lg:flex-shrink-0 lg:justify-end lg:flex-col ">
+                        <ButtonGroup />
+                    </div>
+                </div>
+
+            </div >
         </LayoutComponent>
     )
 }
