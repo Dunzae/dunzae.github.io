@@ -1,4 +1,7 @@
-import { RxExit } from "react-icons/rx";
+import { useAppDispatch } from "@slices/store";
+import { setHidden } from "@slices/modal";
+
+import ExitIcon from "@assets/icons/exit.png";
 
 // special key
 import ControlKey from "@assets/icons/controlKey.png";
@@ -8,9 +11,24 @@ import BButton from "@assets/icons/bButton.png"
 import CButton from "@assets/icons/cButton.png";
 import VButton from "@assets/icons/vButton.png";
 
+
 function ShortCutComponent() {
+    const dispatch = useAppDispatch();
+
+    const exitOnClick = () => {
+        dispatch(setHidden(true));
+    }
     return (
-        <div>
+        <div
+            onClick={(e) => e.stopPropagation()}
+            className="w-[80%] h-[80%] bg-white border border-gray-200 relative rounded-xl shadow-lg bg-[url('./assets/images/shortcutBackgournd.png')] bg-contain bg-no-repeat bg-[50%_50%]"
+        >
+            <div
+                onClick={exitOnClick}
+                className="absolute top-0 right-0 cursor-pointer"
+            >
+                <img src={ExitIcon} className="w-20 h-20" />
+            </div>
             <div className="font-NanumGothic text-3xl p-5 font-bold border-b border-b-slate-300">
                 에디터 단축키
             </div>
@@ -79,8 +97,6 @@ function ShortCutComponent() {
 
                 </div>
             </div>
-
-
         </div>
     )
 }
