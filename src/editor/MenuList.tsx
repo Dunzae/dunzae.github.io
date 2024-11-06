@@ -26,11 +26,7 @@ function MenuList() {
     const blockquoteOnClick = () => editor.chain().focus().toggleBlockquote().run()
     const bulletOnClick = () => editor.chain().focus().toggleBulletList().run()
     const codeOnClick = () => editor.chain().focus().toggleCodeBlock().run()
-    const imageOnClick = () => {
-        if (ref.current) {
-            ref.current.click();
-        }
-    }
+    const imageOnClick = () =>  ref.current?.click();
     const youtubeOnClick = () => {
         dispatch(setHidden(false));
         dispatch(setType("Youtube"))
