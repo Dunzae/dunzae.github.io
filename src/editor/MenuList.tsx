@@ -1,4 +1,4 @@
-import { useAppSelector } from "@slices/store";
+import { useAppDispatch, useAppSelector } from "@slices/store";
 import TodoIcon from "@assets/icons/Todo.png"
 import Header1Icon from "@assets/icons/header1.png";
 import Header2Icon from "@assets/icons/header2.png"
@@ -9,14 +9,13 @@ import CodeIcon from "@assets/icons/code.png"
 import ImageIcon from "@assets/icons/image.png"
 import YoutubeIcon from "@assets/icons/youtube.png"
 import MenuCell from "./MenuCell";
-import type { Editor } from "@tiptap/react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import { setHidden, setType } from "@slices/modal";
 
 function MenuList() {
-    const [height, setHeight] = useState(480)
-    const [width, setWidth] = useState(640)
     const ref = useRef<HTMLInputElement>(null);
 
+    const dispatch = useAppDispatch();
     const editor = useAppSelector(({ editor }) => editor.editor);
     if (editor === null) return null;
 
@@ -31,6 +30,10 @@ function MenuList() {
         if (ref.current) {
             ref.current.click();
         }
+    }
+    const youtubeOnClick = () => {
+        dispatch(setHidden(false));
+        dispatch(setType("Youtube"))
     }
 
     return (
@@ -110,6 +113,14 @@ function MenuList() {
                     title="이미지"
                     body="이미지를 추가하세요."
                     onClick={imageOnClick}
+                />
+            </div>
+            <div className="mb-2">
+                <MenuCell
+                    icon={YoutubeIcon}
+                    title="유투브"
+                    body="유투브 영상을 추가하세요."
+                    onClick={youtubeOnClick}
                 />
             </div>
         </>

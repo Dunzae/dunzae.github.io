@@ -10,10 +10,11 @@ interface ILayoutComponent {
 function LayoutComponent({
     children
 }: ILayoutComponent) {
+    const modalHidden = useAppSelector(({modal}) => modal.hidden)
     const slideMenuHidden = useAppSelector(({ menu }) => menu.slideMenuHidden)
     const location = useAppSelector(({ menu }) => menu.location)
     return (
-        <div className="pb-[62px] lg:pb-0 lg:h-dvh lg:flex lg:flex-row">
+        <div className={`pb-[62px] lg:pb-0 lg:h-dvh lg:flex lg:flex-row ${modalHidden ? 'h-auto overflow-y-visible' : 'h-dvh overflow-y-hidden'}`}>
             <div className="bg-white lg:min-w-[320px] lg:w-[24%] lg:h-full lg:flex-shrink-0">
                 <SideBarComponent />
             </div>

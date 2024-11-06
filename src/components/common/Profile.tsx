@@ -14,7 +14,7 @@ function ProfileComponent({
     tagColor,
 }: IProfileComponent) {
     return (
-        <div className={"flex flex-col flex-shrink-0 " + (className ?? "")} >
+        <div className={"w-full flex flex-col flex-shrink-0 "} >
             {/* 프로필 이미지 */}
             <div className="flex justify-center" >
                 <div className="w-[200px] rounded-[20%] overflow-hidden flex mb-4">

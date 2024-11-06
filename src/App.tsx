@@ -4,10 +4,12 @@ import "normalize.css"
 import "./global.css";
 import { store } from './slices/store'
 import { Provider } from 'react-redux'
+import ModalComponent from "@components/modals/Modal";
 
 const App = () => {
   return (
     <Provider store={store}>
+      <ModalComponent />
       <RouterProvider router={router} />
     </Provider>
   )

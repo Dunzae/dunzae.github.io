@@ -13,7 +13,7 @@ function SlideMenuComponent({
                 `${hidden ? 'hidden' : 'flex'}`
             }
         >
-            <div className="lg:px-[20px] lg:py-[20px] lg:min-h-dvh bg-[#fafafa]">
+            <div className="w-full lg:px-[20px] lg:py-[20px] lg:min-h-dvh bg-[#fafafa]">
                 <div className="mb-[10px]">
                     <NotificationComponent />
                 </div>

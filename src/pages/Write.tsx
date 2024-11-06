@@ -3,17 +3,30 @@ import Editor from '@editor/Editor';
 import AddBlock from '@editor/AddBlock';
 import GlobalTool from '@editor/GlobalTool';
 import ButtonGroup from "@editor/ButtonGroup";
-import { useAppSelector } from '@slices/store';
+import { useAppDispatch, useAppSelector } from '@slices/store';
+import { useEffect, useRef } from "react";
+import { setWidth } from "@slices/editor";
 
 
 function WritePage() {
+    const ref = useRef<HTMLDivElement>(null);
+    const dispatch = useAppDispatch();
+    const editor = useAppSelector(({editor}) => editor.editor)
     const fontType = useAppSelector(({ editor }) => editor.fontType);
     const fontWeight = useAppSelector(({ editor }) => editor.fontWeight);
+
+    useEffect(() => {
+        if(ref.current !== null) {
+            dispatch(setWidth(ref.current.clientWidth));
+        }
+    }, [])
 
     return (
         <LayoutComponent>
             <div className="flex flex-col bg-[#f2f2f2] lg:flex-row lg:h-dvh">
-                <div className="flex-grow min-h-[300px] overflow-x-hidden my-4 p-4 bg-white lg:m-5"
+                <div className="flex-grow min-h-[300px] overflow-x-hidden my-4 p-4 bg-white lg:m-5 cursor-pointer"
+                    ref={ref}
+                    onClick={() => editor?.commands.focus()}
                     style={{
                         fontFamily: fontType,
                         fontWeight: fontWeight,
@@ -21,7 +34,7 @@ function WritePage() {
                 >
                     <Editor />
                 </div>
-                <div className="py-5 border-l border-l-gray w-full  flex flex-col overflow-hidden gap-4 lg:w-[300px] lg:h-full ">
+                <div className="py-5 border-l border-l-gray w-full flex flex-col overflow-hidden gap-4 flex-shrink-0 lg:w-[300px] lg:h-full ">
                     <div className="p-2 flex flex-col w-full min-h-[300px] flex-shrink bg-white rounded-[20px]">
                         <AddBlock />
                     </div>
