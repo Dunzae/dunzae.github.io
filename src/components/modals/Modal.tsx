@@ -1,7 +1,10 @@
 import { useAppDispatch, useAppSelector } from "@slices/store";
-import ShortCutComponent from "./ShortCut";
 import { setHidden } from "@slices/modal";
 import ExitIcon from "@assets/icons/exit.png";
+
+// Modal 컴포넌트
+import YoutubeComponent from "./Youtube";
+import ShortCutComponent from "./ShortCut";
 
 function ModalComponent() {
     const dispatch = useAppDispatch();
@@ -29,7 +32,8 @@ function ModalComponent() {
                     >
                         <img src={ExitIcon} className="w-20 h-20" />
                     </div>
-                    <ShortCutComponent />
+                    {/* <ShortCutComponent /> */}
+                    <YoutubeComponent />
                 </div>
             </div>
         </div>
