@@ -23,7 +23,7 @@ function WritePage() {
                 >
                     <Editor />
                 </div>
-                <div className="py-5 border-l border-l-gray w-full  flex flex-col overflow-hidden gap-4 lg:w-[300px] lg:h-full ">
+                <div className="py-5 border-l border-l-gray w-full flex flex-col overflow-hidden gap-4 flex-shrink-0 lg:w-[300px] lg:h-full ">
                     <div className="p-2 flex flex-col w-full min-h-[300px] flex-shrink bg-white rounded-[20px]">
                         <AddBlock />
                     </div>
