@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useEditor, EditorContent } from "@tiptap/react";
+import { useEditor, EditorContent, BubbleMenu } from "@tiptap/react";
 
 // Node
 import Text from '@tiptap/extension-text'
@@ -12,10 +12,16 @@ import Paragraph from '@tiptap/extension-paragraph'
 import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
 import Heading from '@tiptap/extension-heading'
+import Youtube from "@tiptap/extension-youtube"
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
 
 // Mark
 import Bold from '@tiptap/extension-bold'
+import CustomTextStyle from "./CustomTextStyle";
+import BubbleMenuExtension from "@tiptap/extension-bubble-menu";
+
+// components
+import BubbleMenuComponent from "./BubbleMenu";
 
 // styling
 import "./style.scss";
@@ -45,6 +51,7 @@ function Editor() {
             Text,
             Bold,
             Image,
+            Youtube,
             Document,
             Paragraph,
             Blockquote,
@@ -59,25 +66,32 @@ function Editor() {
             }),
             CodeBlockLowlight.configure({
                 lowlight,
-            })
+            }),
+            CustomTextStyle,
+            BubbleMenuExtension,
         ],
         editorProps: {
             attributes: {
-                class: `prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-1 focus:outline-none`,
+                class: `max-w-full prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl my-5 focus:outline-none`,
             }
         },
         autofocus: true,
         content: content,
     })
 
-    if(editor === null) return null;
-    
+    if (editor === null) return null;
+
     useEffect(() => {
         dispatch(setEditor(editor));
     }, [editor])
 
     return (
-        <EditorContent editor={editor}/>
+        <div className="relative">
+            <EditorContent editor={editor}/>
+            <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
+                <BubbleMenuComponent />
+            </BubbleMenu>
+        </div>
     )
 }
 
