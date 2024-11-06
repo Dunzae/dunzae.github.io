@@ -10,7 +10,7 @@ import ImageIcon from "@assets/icons/image.png"
 import YoutubeIcon from "@assets/icons/youtube.png"
 import MenuCell from "./MenuCell";
 import { useRef } from "react";
-import { setHidden } from "@slices/modal";
+import { setHidden, setType } from "@slices/modal";
 
 function MenuList() {
     const ref = useRef<HTMLInputElement>(null);
@@ -33,6 +33,7 @@ function MenuList() {
     }
     const youtubeOnClick = () => {
         dispatch(setHidden(false));
+        dispatch(setType("Youtube"))
     }
 
     return (

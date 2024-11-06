@@ -2,12 +2,13 @@ import { VscOpenPreview } from "react-icons/vsc";
 import { FiUploadCloud } from "react-icons/fi";
 import { FaRegKeyboard } from "react-icons/fa6";
 import { useAppDispatch } from "@slices/store";
-import { setHidden } from "@slices/modal";
+import { setHidden, setType } from "@slices/modal";
 
 function ButtonGroup() {
     const dispatch = useAppDispatch();
     const onShortCutClick = () => {
         dispatch(setHidden(false));
+        dispatch(setType("ShortCut"));
     }
 
     return (
