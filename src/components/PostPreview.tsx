@@ -11,7 +11,7 @@ function PostPreviewComponent({
     reverse,
 }: IPostPreviewComponent) {
     return <div className="border-b-2 p-4 mb-4 border-[#E6E6E6] bg-white rounded-[20px]">
-        <div className={`flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} lg:max-h-[250px] overflow-y-hidden gap-4 mb-4`}>
+        <div className={`flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} lg:max-h-[250px] overflow-y-hidden gap-4 mb-4 justify-between`}>
             <div className="flex flex-col">
                 <div className="flex flex-row items-center mb-2 lg:mb-4">
                     <span>
