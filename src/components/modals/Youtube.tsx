@@ -23,7 +23,7 @@ function YoutubeComponent() {
     return (
         <div
             onClick={(e) => e.stopPropagation()}
-            className="w-[400px] h-[400px] flex flex-col bg-white border border-gray-200 relative rounded-xl shadow-lg bg-[url('./assets/images/shortcutBackgournd.png')] bg-contain bg-no-repeat bg-[50%_50%]"
+            className="w-[400px] h-[400px] flex flex-col bg-white border border-gray-200 relative rounded-xl shadow-lg"
         >
             <div
                 onClick={exitOnClick}
@@ -34,7 +34,7 @@ function YoutubeComponent() {
             <div className="font-NanumGothic text-3xl p-5 font-bold border-b border-b-slate-300">
                 유투브 주소 입력
             </div>
-            <div className="flex w-full h-full items-end">
+            <div className="flex w-full h-full items-end bg-[url('./assets/images/youtubeBackgournd.png')] bg-cover bg-no-repeat bg-[50%_100%]">
                 <input type="text"
                     onKeyDown={onKeyDown}
                     className="outline-none w-full h-10 font-NanumGothic font-bold text-xl px-5 py-8"
