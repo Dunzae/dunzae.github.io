@@ -3,18 +3,29 @@ import Editor from '@editor/Editor';
 import AddBlock from '@editor/AddBlock';
 import GlobalTool from '@editor/GlobalTool';
 import ButtonGroup from "@editor/ButtonGroup";
-import { useAppSelector } from '@slices/store';
+import { useAppDispatch, useAppSelector } from '@slices/store';
+import { useEffect, useRef } from "react";
+import { setWidth } from "@slices/editor";
 
 
 function WritePage() {
+    const ref = useRef<HTMLDivElement>(null);
+    const dispatch = useAppDispatch();
     const editor = useAppSelector(({editor}) => editor.editor)
     const fontType = useAppSelector(({ editor }) => editor.fontType);
     const fontWeight = useAppSelector(({ editor }) => editor.fontWeight);
+
+    useEffect(() => {
+        if(ref.current !== null) {
+            dispatch(setWidth(ref.current.clientWidth));
+        }
+    }, [])
 
     return (
         <LayoutComponent>
             <div className="flex flex-col bg-[#f2f2f2] lg:flex-row lg:h-dvh">
                 <div className="flex-grow min-h-[300px] overflow-x-hidden my-4 p-4 bg-white lg:m-5 cursor-pointer"
+                    ref={ref}
                     onClick={() => editor?.commands.focus()}
                     style={{
                         fontFamily: fontType,
