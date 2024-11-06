@@ -4,7 +4,7 @@ import "normalize.css"
 import "./global.css";
 import { store } from './slices/store'
 import { Provider } from 'react-redux'
-import ModalComponent from "@components/common/Modal";
+import ModalComponent from "@components/modals/Modal";
 
 const App = () => {
   return (
