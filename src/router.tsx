@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import HomePage from '@pages/Home';
 import WritePage from '@pages/Write';
 import PostPage from '@pages/Post';
+import LoginPage from '@pages/Login';
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     {
         path : "/post",
         element : <PostPage />
+    },
+    {
+        path : "/login",
+        element : <LoginPage />
     }
 ])
 
