@@ -1,4 +1,4 @@
-import PostPreviewComponent from "@components/PostPreview";
+import PostPreviewComponent from "@components/post/Preview";
 import TabMenuComponent from "@components/common/menu/TabMenu";
 import LayoutComponent from "@components/common/Layout";
 
