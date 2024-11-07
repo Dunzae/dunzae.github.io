@@ -11,6 +11,16 @@ function ButtonGroup() {
         dispatch(setType("ShortCut"));
     }
 
+    const onPreviewClick = () => {
+        dispatch(setHidden(false));
+        dispatch(setType("Preview"));
+    }
+
+    const onSubmitClick = () => {
+        dispatch(setHidden(false));
+        dispatch(setType("Submit"));
+    }
+
     return (
         <>
             <button
@@ -20,11 +30,17 @@ function ButtonGroup() {
                 <span> <FaRegKeyboard /></span>
                 <span> 단축키 </span>
             </button>
-            <button className='flex w-fit rounded-lg gap-2 justify-center items-center font-NanumGothic font-bold text-md bg-white shadow-lg p-2 lg:w-full lg:justify-start lg:rounded-none'>
+            <button
+                onClick={onPreviewClick}
+                className='flex w-fit rounded-lg gap-2 justify-center items-center font-NanumGothic font-bold text-md bg-white shadow-lg p-2 lg:w-full lg:justify-start lg:rounded-none'
+            >
                 <span> <VscOpenPreview /></span>
                 <span className="text-center"> 미리보기 </span>
             </button>
-            <button className='flex w-fit rounded-lg gap-2 justify-center items-center font-NanumGothic font-bold text-md bg-white shadow-lg p-2 lg:w-full lg:justify-start lg:rounded-none' >
+            <button 
+                onClick={onSubmitClick}
+                className='flex w-fit rounded-lg gap-2 justify-center items-center font-NanumGothic font-bold text-md bg-white shadow-lg p-2 lg:w-full lg:justify-start lg:rounded-none' 
+            >
                 <span>
                     <FiUploadCloud />
                 </span>
