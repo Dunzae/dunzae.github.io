@@ -23,9 +23,6 @@ import BubbleMenuExtension from "@tiptap/extension-bubble-menu";
 // components
 import BubbleMenuComponent from "./BubbleMenu";
 
-// styling
-import "./style.scss";
-
 // for codeBlock
 import { all, createLowlight } from 'lowlight'
 import cpp from 'highlight.js/lib/languages/cpp'

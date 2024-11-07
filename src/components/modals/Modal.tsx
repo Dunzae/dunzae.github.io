@@ -5,6 +5,9 @@ import { setHidden } from "@slices/modal";
 // Modal 컴포넌트
 import YoutubeComponent from "./Youtube";
 import ShortCutComponent from "./ShortCut";
+import PreviewComponent from "./Preview";
+import SubmitComponent from "./Submit";
+import SettingComponent from "./Setting";
 
 function ModalComponent() {
     const dispatch = useAppDispatch();
@@ -21,6 +24,9 @@ function ModalComponent() {
             <div className="w-full h-full flex items-center justify-center">
                 {type === "ShortCut" && <ShortCutComponent />}
                 {type === "Youtube" && <YoutubeComponent />}
+                {type === "Preview" && <PreviewComponent />}
+                {type === "Submit" && <SubmitComponent />}
+                {type === "Setting" && <SettingComponent />}
             </div>
         </div>
     )
