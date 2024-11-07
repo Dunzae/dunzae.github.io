@@ -1,13 +1,14 @@
 import { setHidden } from "@slices/modal";
+import { IoSend } from "react-icons/io5";
 import { useAppDispatch, useAppSelector } from "@slices/store";
-import {  KeyboardEvent } from "react";
+import { KeyboardEvent } from "react";
 
 import ExitIcon from "@assets/icons/exit.png";
 
 function YoutubeComponent() {
     const dispatch = useAppDispatch();
     const editor = useAppSelector(({ editor }) => editor.editor)
-    const editorWidth = useAppSelector(({editor}) => editor.width);
+    const editorWidth = useAppSelector(({ editor }) => editor.width);
 
     const exitOnClick = () => {
         dispatch(setHidden(true));
@@ -16,7 +17,7 @@ function YoutubeComponent() {
     const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             dispatch(setHidden(true));
-            editor?.chain().focus().setYoutubeVideo({ src: e.currentTarget.value, width : editorWidth - 32}).run();
+            editor?.chain().focus().setYoutubeVideo({ src: e.currentTarget.value, width: editorWidth - 32 }).run();
         }
     }
 
@@ -26,10 +27,14 @@ function YoutubeComponent() {
             className="w-[400px] h-[400px] flex flex-col bg-white border border-gray-200 relative rounded-xl shadow-lg"
         >
             <div
-                onClick={exitOnClick}
                 className="absolute top-0 right-0 cursor-pointer"
             >
-                <img src={ExitIcon} className="w-20 h-20" />
+                <div onClick={exitOnClick}>
+                    <IoSend size={40} />
+                </div>
+                <div onClick={exitOnClick}>
+                    <img src={ExitIcon} className="w-20 h-20" />
+                </div>
             </div>
             <div className="font-NanumGothic text-3xl p-5 font-bold border-b border-b-slate-300">
                 유투브 주소 입력

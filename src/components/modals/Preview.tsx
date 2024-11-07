@@ -28,7 +28,7 @@ function PreviewComponent() {
             <div className="font-NanumGothic text-3xl p-5 font-bold border-b border-b-slate-300">
                 게시글 미리보기
             </div>
-            <div className="flex-grow overflow-y-scroll p-4 max-w-full prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl my-5 focus:outline-none" dangerouslySetInnerHTML={{__html : editor.getHTML()}}>
+            <div className="flex-grow overflow-y-scroll p-4 max-w-full prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl my-5 focus:outline-none" dangerouslySetInnerHTML={{ __html: editor.getHTML() }}>
             </div>
         </div>
     )

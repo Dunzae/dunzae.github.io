@@ -6,6 +6,7 @@ import { setHidden, setType } from "@slices/modal";
 
 function ButtonGroup() {
     const dispatch = useAppDispatch();
+    
     const onShortCutClick = () => {
         dispatch(setHidden(false));
         dispatch(setType("ShortCut"));

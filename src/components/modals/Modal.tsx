@@ -6,7 +6,7 @@ import { setHidden } from "@slices/modal";
 import YoutubeComponent from "./Youtube";
 import ShortCutComponent from "./ShortCut";
 import PreviewComponent from "./Preview";
-import SubmitComponent from "./SUbmit";
+import SubmitComponent from "./Submit";
 
 function ModalComponent() {
     const dispatch = useAppDispatch();

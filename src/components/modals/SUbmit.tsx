@@ -1,4 +1,4 @@
-import { MouseEvent, SyntheticEvent, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ExitIcon from "@assets/icons/exit.png";
 import { IoSend } from "react-icons/io5";
 import { setHidden } from "@slices/modal";
@@ -6,11 +6,19 @@ import { useAppDispatch } from "@slices/store";
 
 function SubmitComponent() {
     const ref = useRef<HTMLInputElement>(null);
+    const dispatch = useAppDispatch();
     const [title, setTitle] = useState('');
     const [thumbnail, setThumbnail] = useState<string | null>(null);
-    const dispatch = useAppDispatch();
+
     const exitOnClick = () => {
         dispatch(setHidden(true));
+        setThumbnail(null);
+
+    }
+
+    const submitOnClick = () => {
+        dispatch(setHidden(true));
+        setThumbnail(null);
     }
 
     const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
@@ -35,26 +43,25 @@ function SubmitComponent() {
         }
     }
 
+    const titleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.target.value)
+    }
+
     return (
         <div
-            onKeyDown={(e) => {
-                if(e.key === "Enter") {
-                    dispatch(setHidden(true));
-                    setThumbnail(null);
-                }
-            }}
             onClick={(e) => e.stopPropagation()}
             className="w-[600px] h-[600px] flex flex-col bg-white border border-gray-200 relative rounded-xl shadow-lg"
         >
             <div
-                
+
                 className="absolute top-0 right-0 cursor-pointer flex items-center"
             >
-                <IoSend size={40} onClick={() => {
-                     dispatch(setHidden(true));
-                     setThumbnail(null);
-                }}/>
-                <img src={ExitIcon} className="w-20 h-20" onClick={exitOnClick}/>
+                <div onClick={submitOnClick}>
+                    <IoSend size={40} />
+                </div>
+                <div onClick={exitOnClick}>
+                    <img src={ExitIcon} className="w-20 h-20" />
+                </div>
             </div>
             <div className="font-NanumGothic text-3xl p-5 font-bold border-b border-b-slate-300">
                 제출하기
@@ -62,7 +69,7 @@ function SubmitComponent() {
             <div>
                 <input
                     value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    onChange={titleOnChange}
                     className="p-4 w-full outline-none"
                     type="text" placeholder="제목을 입력해주세요."
                 />
