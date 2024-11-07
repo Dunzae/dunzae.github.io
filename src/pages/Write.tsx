@@ -1,8 +1,8 @@
 import LayoutComponent from "@components/common/Layout";
-import Editor from '@editor/Editor';
-import AddBlock from '@editor/AddBlock';
-import GlobalTool from '@editor/GlobalTool';
-import ButtonGroup from "@editor/ButtonGroup";
+import Editor from '@components/editor/Editor';
+import AddBlock from '@components/editor/AddBlock';
+import GlobalTool from '@components/editor/GlobalTool';
+import ButtonGroup from "@components/editor/ButtonGroup";
 import { useAppDispatch, useAppSelector } from '@slices/store';
 import { useEffect, useRef } from "react";
 import { setWidth } from "@slices/editor";
