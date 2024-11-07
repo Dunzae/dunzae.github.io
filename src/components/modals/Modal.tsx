@@ -7,6 +7,7 @@ import YoutubeComponent from "./Youtube";
 import ShortCutComponent from "./ShortCut";
 import PreviewComponent from "./Preview";
 import SubmitComponent from "./Submit";
+import SettingComponent from "./Setting";
 
 function ModalComponent() {
     const dispatch = useAppDispatch();
@@ -25,6 +26,7 @@ function ModalComponent() {
                 {type === "Youtube" && <YoutubeComponent />}
                 {type === "Preview" && <PreviewComponent />}
                 {type === "Submit" && <SubmitComponent />}
+                {type === "Setting" && <SettingComponent />}
             </div>
         </div>
     )

@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { setLocation, setSlideMenuHidden } from "@slices/menu";
 import { SyntheticEvent, useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "@slices/store"
+import { setHidden, setType } from "@slices/modal";
 
 function MenubarComponent() {
     const location = useAppSelector(({ menu }) => menu.location);
@@ -24,7 +25,12 @@ function MenubarComponent() {
                 dispatch(setLocation(to));
                 if (to === "/notification") {
                     dispatch(setSlideMenuHidden(!slideMenuHidden));
-                } else {
+                } else 
+                {
+                    if (to === "/setting") {
+                        dispatch(setType("Setting"));
+                        dispatch(setHidden(false));
+                    }
                     dispatch(setSlideMenuHidden(true))
                 }
 
@@ -33,7 +39,6 @@ function MenubarComponent() {
                 }
             }
         }
-
     }, [location, slideMenuHidden])
 
     return (
