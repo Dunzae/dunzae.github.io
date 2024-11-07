@@ -1,11 +1,16 @@
 import { setHidden } from "@slices/modal";
-import { IoSend } from "react-icons/io5";
 import { useAppDispatch } from "@slices/store";
+import router from "../../router";
 
 import ExitIcon from "@assets/icons/exit.png";
 
 function SettingComponent() {
     const dispatch = useAppDispatch();
+
+    const loginOnClick = () => {
+        dispatch(setHidden(true));
+        router.navigate("/login")
+    }
 
     const exitOnClick = () => {
         dispatch(setHidden(true));
@@ -27,7 +32,7 @@ function SettingComponent() {
                 설정
             </div>
             <div className="font-NanumGothic font-bold text-center flex flex-col gap-2">
-                <div className="w-full h-16 p-4 text-xl border-b border-b-gray-200 cursor-pointer">
+                <div className="w-full h-16 p-4 text-xl border-b border-b-gray-200 cursor-pointer" onClick={loginOnClick}>
                     로그인
                 </div>
                 <div className="w-full h-16 p-4 text-xl border-b border-b-gray-200 cursor-pointer">
