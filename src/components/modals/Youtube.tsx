@@ -24,10 +24,10 @@ function YoutubeComponent() {
     return (
         <div
             onClick={(e) => e.stopPropagation()}
-            className="w-[400px] h-[400px] flex flex-col bg-white border border-gray-200 relative rounded-xl shadow-lg"
+            className="w-[600px] h-[600px] flex flex-col bg-white border border-gray-200 relative rounded-xl shadow-lg"
         >
             <div
-                className="absolute top-0 right-0 cursor-pointer"
+                className="absolute top-0 right-0 cursor-pointer flex items-center"
             >
                 <div onClick={exitOnClick}>
                     <IoSend size={40} />
