@@ -1,6 +1,6 @@
-import { useCallback, useContext, useMemo, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import RegisterComponent from "@components/Register";
 import ax from "@utils/axios";
 import ServerError from "@utils/error";
@@ -14,10 +14,18 @@ const emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/
 const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~])[^  |\n]+$/gm
 
 function RegisterContainer() {
+    const navigate = useNavigate()
     const dispatch = useAppDispatch();
-    const {accessToken, refreshToken} = useAppSelector(({auth}) => auth);
+    const accessToken = useAppSelector(({auth}) => auth.accessToken);
+    const refreshToken = useAppSelector(({auth}) => auth.refreshToken);
     const [errorMessage, setErrorMessage] = useState("");
     const { register, handleSubmit } = useForm<InputsType>();
+
+    useEffect(() => {
+        if(accessToken !== undefined && refreshToken !== undefined) {
+            navigate("/");
+        }
+    }, [accessToken, refreshToken])
 
     const onSubmit: SubmitHandler<InputsType> = useCallback(async ({ id, email, password, remember }) => {
         setErrorMessage("");
@@ -41,6 +49,8 @@ function RegisterContainer() {
                     exp : "1h"
                 })
             }
+
+            navigate("/");
         }
     }, [])
 

@@ -1,11 +1,12 @@
 import LoginComponent from "@components/Login";
 import ax from "@utils/axios";
 import ServerError from "@utils/error";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { setAccessToken, setRefreshToken } from "@slices/auth";
-import { useAppDispatch } from "@slices/store";
+import { useAppDispatch, useAppSelector } from "@slices/store";
 import { setLocalStorageItem } from "@utils/storage";
+import { useNavigate } from "react-router-dom";
 
 export type InputsType = {
     id: string;
@@ -17,9 +18,18 @@ const idPattern = /\w{6}.+/
 const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~])[^  |\n]+$/gm
 
 function LoginContainer() {
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
+    const accessToken = useAppSelector(({auth}) => auth.accessToken);
+    const refreshToken = useAppSelector(({auth}) => auth.refreshToken);
     const [errorMessage, setErrorMessage] = useState("");
     const { register, handleSubmit } = useForm<InputsType>();
+
+    useEffect(() => {
+        if(accessToken !== undefined && refreshToken !== undefined) {
+            navigate("/");
+        }
+    }, [accessToken, refreshToken])
 
     // 로그인 버튼을 눌렀을 경우
     const onSubmit: SubmitHandler<InputsType> = useCallback(async ({ id, password, remember }) => {
