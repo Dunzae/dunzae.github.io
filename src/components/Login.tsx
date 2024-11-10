@@ -33,7 +33,7 @@ function LoginComponent({
                 </div>
                 <div className="flex px-[20px] py-[10px] overflow-hidden">
                     <div className="flex w-full px-[10px] py-[10px] justify-between items-center border-2 border-white border-opacity-50 rounded-2xl  h-full">
-                        <div className="flex  h-full mr-2">
+                        <div className="flex w-full h-full mr-2">
                             <input autoComplete="username" className="w-full h-full bg-transparent text-white placeholder:text-white outline-none border-none font-Roboto"
                                 placeholder="Username"
                                 {
@@ -57,7 +57,7 @@ function LoginComponent({
                 </div>
                 <div className="flex  px-[20px] py-[10px] overflow-hidden">
                     <div className="flex w-full px-[10px] py-[10px] justify-between items-center border-2 border-white border-opacity-50 rounded-2xl  h-full">
-                        <div className="flex h-full mr-2 ">
+                        <div className="flex w-full h-full mr-2 ">
                             <input type="password" autoComplete="current-password" className=" h-full bg-transparent text-white placeholder:text-white outline-none border-none font-Roboto"
                                 placeholder="Password"
                                 {
