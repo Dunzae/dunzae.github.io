@@ -10,7 +10,7 @@ const ax : AxiosInstance = axios.create({
 ax.getApi = async (url : string, data : any) => {
     try {
         const result = await ax.get(url, data)
-        return result.data;
+        return result;
     } catch(e) {
         if (isAxiosError(e)) {
             if(e.response === undefined) {
@@ -18,7 +18,7 @@ ax.getApi = async (url : string, data : any) => {
                     error: "The server is down",
                 }
             }
-            return e.response?.data;
+            return e.response;
         }
         return {
             error: "Unknown error",
@@ -29,7 +29,7 @@ ax.getApi = async (url : string, data : any) => {
 ax.postApi = async (url : string, data : any) => {
     try {
         const result = await ax.post(url, data)
-        return result.data;
+        return result;
     } catch(e) {
         if (isAxiosError(e)) {
             if(e.response === undefined) {
@@ -37,7 +37,7 @@ ax.postApi = async (url : string, data : any) => {
                     error: "The server is down",
                 }
             }
-            return e.response?.data;
+            return e.response;
         }
         return {
             error: "Unknown error",
