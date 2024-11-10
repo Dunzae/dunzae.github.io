@@ -29,15 +29,15 @@ function RegisterComponent({
     return (
         <div className="h-dvh flex justify-center items-center bg-[url('assets/images/background.png')] bg-no-repeat bg-cover">
             <form onSubmit={onSubmit} className="max-w-[350px] border border-white border-opacity-30 backdrop-blur-md rounded-lg overflow-hidden flex-1 py-[10px]">
-                <div className="flex  pb-[10px] my-[10px] ">
-                    <div className=" flex justify-center py-[10px]">
-                        <span className="text-[30px] text-white font-bold">Login</span>
+                <div className="flex w-full pb-[10px] my-[10px] ">
+                    <div className="w-full flex justify-center py-[10px]">
+                        <span className="text-[30px] text-white font-bold font-Poppins">Register</span>
                     </div>
                 </div>
                 <div className="flex  px-[20px] py-[10px] overflow-hidden">
                     <div className="flex w-full px-[10px] py-[10px] justify-between items-center border-2 border-white border-opacity-50 rounded-2xl  h-full">
                         <div className="flex w-full h-full mr-2">
-                            <input autoComplete="username" className="w-full h-full bg-transparent text-white placeholder:text-white outline-none border-none"
+                            <input autoComplete="username" className="w-full h-full bg-transparent text-white placeholder:text-white outline-none border-none font-Roboto"
                                 placeholder="Username"
                                 {
                                 ...register("id", {
@@ -61,7 +61,7 @@ function RegisterComponent({
                 <div className="flex  px-[20px] py-[10px] overflow-hidden">
                     <div className="flex w-full px-[10px] py-[10px] justify-between items-center border-2 border-white border-opacity-50 rounded-2xl  h-full">
                         <div className="flex w-full h-full mr-2">
-                            <input autoComplete="email" className="w-full h-full bg-transparent text-white placeholder:text-white outline-none border-none"
+                            <input autoComplete="email" className="w-full h-full bg-transparent text-white placeholder:text-white outline-none border-none font-Roboto"
                                 placeholder="Email"
                                 {
                                 ...register("email", {
@@ -85,7 +85,7 @@ function RegisterComponent({
                 <div className="flex px-[20px] py-[10px] overflow-hidden">
                     <div className="flex w-full px-[10px] py-[10px] justify-between items-center border-2 border-white border-opacity-50 rounded-2xl  h-full">
                         <div className="flex w-full h-full mr-2 ">
-                            <input type="password" autoComplete="current-password" className="w-full h-full bg-transparent text-white placeholder:text-white outline-none border-none"
+                            <input type="password" autoComplete="current-password" className="w-full h-full bg-transparent text-white placeholder:text-white outline-none border-none font-Roboto"
                                 placeholder="Password"
                                 {
                                 ...register("password", {
@@ -118,23 +118,23 @@ function RegisterComponent({
                                 />
                             </div>
                             <span className="inline-block text-white flex-shrink-0">
-                                <label htmlFor="remember" className="cursor-pointer">Remember Me</label>
+                                <label htmlFor="remember" className="cursor-pointer font-Roboto">Remember Me</label>
                             </span>
                         </div>
                         <div className="flex basis-auto justify-end">
-                            <button type="button" className="text-white flex-shrink-0">Forgot password</button>
+                            <button type="button" className="text-white flex-shrink-0 font-Roboto">Forgot password</button>
                         </div>
                     </div>
                 </div>
                 <div className="flex w-full px-[20px] mb-[10px]">
-                    <div className="flex w-full py-2 justify-center rounded-3xl bg-white ">
+                    <div className="flex w-full py-2 justify-center rounded-3xl bg-white font-Roboto font-bold">
                         <button type="submit" className=" h-full">Register</button>
                     </div>
                 </div>
                 <div className="flex w-full">
                     <div className='flex w-full px-[20px] pb-[10px] text-white justify-center'>
-                        <span className="mr-2">Don't have account?</span>
-                        <button type="button" className="border-b-2 border-transparent hover:border-white">
+                        <span className="mr-2 font-Roboto">Don't have account?</span>
+                        <button type="button" className="border-b-2 border-transparent hover:border-white font-Roboto">
                             <Link to="/login">
                                 Login
                             </Link>
