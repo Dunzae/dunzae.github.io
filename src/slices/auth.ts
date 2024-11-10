@@ -14,10 +14,10 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setAccessToken : (state, action : PayloadAction<string>) => {
+    setAccessToken : (state, action : PayloadAction<string | undefined>) => {
         state.accessToken = action.payload
     },
-    setRefreshToken : (state, action : PayloadAction<string>) => {
+    setRefreshToken : (state, action : PayloadAction<string | undefined>) => {
         state.refreshToken = action.payload
     }
   },
