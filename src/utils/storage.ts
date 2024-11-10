@@ -57,3 +57,7 @@ export function setLocalStorageItem(key: string, value: any, opt?: any) {
     
     localStorage.setItem(key, JSON.stringify({ value, opt }));
 }
+
+export function removeLocalStorageItem(key : string) {
+    localStorage.removeItem(key);
+}
