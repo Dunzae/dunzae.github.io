@@ -1,25 +1,47 @@
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import ExitIcon from "@assets/icons/exit.png";
 import { IoSend } from "react-icons/io5";
-import { setHidden } from "@slices/modal";
-import { useAppDispatch } from "@slices/store";
+import { setHidden, setType } from "@slices/modal";
+import { useAppDispatch, useAppSelector } from "@slices/store";
+import ax from "@utils/axios";
+import router from "router"
+
 
 function SubmitComponent() {
     const ref = useRef<HTMLInputElement>(null);
     const dispatch = useAppDispatch();
+    const editor = useAppSelector(({ editor }) => editor.editor);
+    const accessToken = useAppSelector(({ auth }) => auth.accessToken);
     const [title, setTitle] = useState('');
     const [thumbnail, setThumbnail] = useState<string | null>(null);
 
     const exitOnClick = () => {
         dispatch(setHidden(true));
         setThumbnail(null);
-
     }
 
-    const submitOnClick = () => {
-        dispatch(setHidden(true));
+    const submitOnClick = useCallback(async () => {
+        setTitle("");
         setThumbnail(null);
-    }
+        dispatch(setHidden(true));
+
+        if (!accessToken) {
+            alert("로그인되지 않았습니다.");
+            return router.navigate("/login");
+        } else {
+            const post = editor?.getHTML()
+            const result = await ax.postApi("/post", { post });
+            if (result.error !== undefined) {
+                dispatch(setType("Fail"));
+                dispatch(setHidden(false));
+            } else {
+                dispatch(setHidden(false));
+                dispatch(setType("Success"));
+            }
+        }
+
+        
+    }, [editor, accessToken])
 
     const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
         if (e.dataTransfer) {
