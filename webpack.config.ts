@@ -42,8 +42,10 @@ module.exports = {
     },
     resolve: {
         extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
+        modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         alias: {
             '@pages': path.resolve(__dirname, 'src/pages'),
+            '@utils': path.resolve(__dirname, 'src/utils'),
             '@assets': path.resolve(__dirname, 'src/assets'),
             '@slices': path.resolve(__dirname, 'src/slices'),
             '@constants': path.resolve(__dirname, 'src/constants'),

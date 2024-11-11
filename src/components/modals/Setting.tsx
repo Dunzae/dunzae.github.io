@@ -1,15 +1,24 @@
 import { setHidden } from "@slices/modal";
-import { useAppDispatch } from "@slices/store";
+import { useAppDispatch, useAppSelector } from "@slices/store";
 import router from "../../router";
-
 import ExitIcon from "@assets/icons/exit.png";
+import { setAccessToken, setRefreshToken } from "@slices/auth";
+import { removeLocalStorageItem, setLocalStorageItem } from "@utils/storage";
 
 function SettingComponent() {
     const dispatch = useAppDispatch();
+    const accessToken = useAppSelector(({ auth }) => auth.accessToken)
 
     const loginOnClick = () => {
         dispatch(setHidden(true));
         router.navigate("/login")
+    }
+
+    const logoutOnClick = () => {
+        dispatch(setAccessToken(undefined));
+        dispatch(setRefreshToken(undefined));
+        removeLocalStorageItem("token");
+        dispatch(setHidden(true));
     }
 
     const exitOnClick = () => {
@@ -32,9 +41,13 @@ function SettingComponent() {
                 설정
             </div>
             <div className="font-NanumGothic font-bold text-center flex flex-col gap-2">
-                <div className="w-full h-16 p-4 text-xl border-b border-b-gray-200 cursor-pointer" onClick={loginOnClick}>
-                    로그인
-                </div>
+                {!accessToken ?
+                    <div className="w-full h-16 p-4 text-xl border-b border-b-gray-200 cursor-pointer" onClick={loginOnClick}>
+                        로그인
+                    </div>
+                    : <div className="w-full h-16 p-4 text-xl border-b border-b-gray-200 cursor-pointer" onClick={logoutOnClick}>
+                        로그아웃
+                    </div>}
                 <div className="w-full h-16 p-4 text-xl border-b border-b-gray-200 cursor-pointer">
                     관리 페이지
                 </div>
