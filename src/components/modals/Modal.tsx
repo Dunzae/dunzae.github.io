@@ -1,13 +1,13 @@
 import { useAppDispatch, useAppSelector } from "@slices/store";
 import { setHidden } from "@slices/modal";
 
-
 // Modal 컴포넌트
 import YoutubeComponent from "./Youtube";
 import ShortCutComponent from "./ShortCut";
 import PreviewComponent from "./Preview";
 import SubmitComponent from "./Submit";
 import SettingComponent from "./Setting";
+import FailComponent from "./Fail";
 
 function ModalComponent() {
     const dispatch = useAppDispatch();
@@ -27,6 +27,7 @@ function ModalComponent() {
                 {type === "Preview" && <PreviewComponent />}
                 {type === "Submit" && <SubmitComponent />}
                 {type === "Setting" && <SettingComponent />}
+                {type === "Fail" && <FailComponent />}
             </div>
         </div>
     )
