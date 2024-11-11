@@ -18,7 +18,11 @@ ax.getApi = async (url : string, data : any) => {
                     error: "The server is down",
                 }
             }
-            return e.response;
+            else {
+                return {
+                    error: "Unknown error",
+                }
+            }
         }
         return {
             error: "Unknown error",
@@ -36,8 +40,11 @@ ax.postApi = async (url : string, data : any) => {
                 return {
                     error: "The server is down",
                 }
+            } else {
+                return {
+                    error: "Unknown error",
+                }
             }
-            return e.response;
         }
         return {
             error: "Unknown error",
