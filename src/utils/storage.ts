@@ -25,6 +25,7 @@ export function getLocalStorageItem(key: string) {
         } 
         // 유효시간을 넘었을 경우 undefined 반환
         else {
+            removeLocalStorageItem(item);
             return undefined;
         }
     }
