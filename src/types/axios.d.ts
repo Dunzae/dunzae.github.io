@@ -8,7 +8,7 @@ type ReturnType = {
 declare module 'axios' {
     export interface AxiosInstance 
     {
-        getApi : (url : string, data : any) => Promise<ReturnType>,
-        postApi : (url : string, data : any) => Promise<ReturnType>
+        getApi : (url : string, data : any, config? : any) => Promise<ReturnType>,
+        postApi : (url : string, data : any, config? : any) => Promise<ReturnType>
     }
 }

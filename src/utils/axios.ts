@@ -7,7 +7,8 @@ const ax : AxiosInstance = axios.create({
     }
 })
 
-ax.getApi = async (url : string, data : any) => {
+
+ax.getApi = async (url : string, data : any, config? : any) => {
     try {
         const result = await ax.get(url, data)
         return result;
@@ -30,7 +31,7 @@ ax.getApi = async (url : string, data : any) => {
     }
 }
 
-ax.postApi = async (url : string, data : any) => {
+ax.postApi = async (url : string, data : any, config? : any) => {
     try {
         const result = await ax.post(url, data)
         return result;
