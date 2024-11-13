@@ -21,27 +21,40 @@ function SubmitComponent() {
     }
 
     const submitOnClick = useCallback(async () => {
-        setTitle("");
-        setThumbnail(null);
-        dispatch(setHidden(true));
-
         if (!accessToken) {
+            dispatch(setHidden(true));
             alert("로그인되지 않았습니다.");
             return router.navigate("/login");
         } else {
             const post = editor?.getHTML()
-            const result = await ax.postApi("/post", { post });
-            if (result.error !== undefined) {
-                dispatch(setType("Fail"));
-                dispatch(setHidden(false));
-            } else {
-                dispatch(setHidden(false));
-                dispatch(setType("Success"));
-            }
-        }
+            const formData = new FormData();
 
-        
-    }, [editor, accessToken])
+            formData.append("title", title);
+            formData.append("body", post ?? "");
+            if (ref.current !== null && ref.current?.files !== null) {
+                formData.append("thumbnail", ref.current.files[0]);
+            }
+
+            if (ref.current !== null) {
+                const result = await ax.postApi("/post/upload", formData, {
+                    headers: { "Content-type": "multipart/form-data" }
+                });
+
+                if (result.error !== undefined) {
+                    setTitle("");
+                    setThumbnail(null);
+                    dispatch(setType("Fail"));
+                    dispatch(setHidden(false));
+                } else {
+                    setTitle("");
+                    setThumbnail(null);
+                    dispatch(setType("Success"));
+                    dispatch(setHidden(false));
+                }
+            }
+
+        }
+    }, [editor, thumbnail, accessToken])
 
     const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
         if (e.dataTransfer) {
