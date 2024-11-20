@@ -34,8 +34,7 @@ function ViewPage() {
 
     return (
         <LayoutComponent>
-            {isLoading && <div>Loading</div>}
-            {data && <Post
+            {!isLoading && data && <Post
                 author={data.author}
                 title={data.title}
                 body={data.body}
