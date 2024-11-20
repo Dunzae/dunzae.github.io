@@ -1,2 +1,4 @@
 # dunzae.github.io
-개인 홈페이지
+Frontend 
+- v2
+- 2024년 11월 21일
