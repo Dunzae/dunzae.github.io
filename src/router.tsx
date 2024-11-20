@@ -1,7 +1,7 @@
 import { createHashRouter } from 'react-router-dom';
 import HomePage from '@pages/Home';
 import WritePage from '@pages/Write';
-import PostPage from '@pages/Post';
+import ViewPage from '@pages/View';
 import LoginPage from '@pages/Login';
 import RegisterPage from '@pages/Register'
 import ProfilePage from '@pages/Profile';
@@ -16,8 +16,8 @@ const router = createHashRouter([
         element : <WritePage />
     },
     {
-        path : "/post",
-        element : <PostPage />
+        path : "/view",
+        element : <ViewPage />
     },
     {
         path : "/login",
