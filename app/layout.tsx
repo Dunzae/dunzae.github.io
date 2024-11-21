@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex overflow-scroll">
+      <body className="lg:flex lg:overflow-scroll">
         <TitleBar className="lg:min-w-[400px] lg:max-w-[500px] lg:h-full " />
         <MenuBar className="bg-white" />
         <div className="w-full h-full relative z-1 bg-[#f2f2f2]">
