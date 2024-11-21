@@ -55,5 +55,3 @@ export function TitleBar({ className }: TitleBarProps) {
         </motion.header>
     )
 }
-
-export default TitleBar;
