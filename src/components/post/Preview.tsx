@@ -2,6 +2,7 @@ import ProfileImage from "@assets/images/profile.jpg"
 import EmptyThumbnailImage from "@assets/images/emptyThumbnail.png";
 import { FcLike } from "react-icons/fc";
 import { IoIosMore } from "react-icons/io";
+import { timeToLocalTime, timeToRead } from "@utils/functions";
 
 interface IPostPreviewComponent {
     profile: string,
@@ -28,7 +29,7 @@ function PostPreviewComponent({
                     </span>
                     <span className="text-[14px] text-[#292929] font-NanumGothic font-bold">{profile}</span>
                     <span className="mx-2">·</span>
-                    <span className="flex items-center text-[12px] text-[#757575] font-NanumGothic font-bold">{createDate}</span>
+                    <span className="flex items-center text-[12px] text-[#757575] font-NanumGothic font-bold">{timeToLocalTime(createDate)}</span>
                 </div>
                 <div className="lg:flex lg:flex-col lg:w-full lg:pr-[200px]">
                     <p className="text-[#191919] mb-2 text-[22px] font-Roboto font-bold">{title}</p>
@@ -51,7 +52,7 @@ function PostPreviewComponent({
                         {like}
                     </div>
                 </div>
-                <span className="p-3 rounded-[20%] color-[#757575] border border-slate-200 font-normal font-Titillium shadow-2xl">3 min read</span>
+                <span className="p-3 rounded-[20%] color-[#757575] border border-slate-200 font-normal font-Titillium shadow-2xl">{timeToRead(content.length)}</span>
             </div>
             <div className="flex items-center flex-grow-0 basis-0 cursor-pointer">
                 <div className="inline-block w-fit">
