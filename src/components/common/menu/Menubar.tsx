@@ -3,7 +3,6 @@ import {
     IoPerson, IoPersonOutline, IoSettingsOutline, IoSettings
 } from "react-icons/io5";
 import { IoMdNotifications, IoMdNotificationsOutline } from "react-icons/io";
-import { } from "react-icons/io5";
 import { HiOutlinePencilSquare, HiPencilSquare } from "react-icons/hi2";
 
 import { useNavigate } from "react-router-dom";
