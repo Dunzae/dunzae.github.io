@@ -46,11 +46,7 @@ function MenubarComponent() {
                 <li data-move={true} data-to="" onClick={onClick} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
                     {location === "/" ? <IoHome size={30} /> : <IoHomeOutline size={30} />}
                 </li>
-                <li data-move={false} data-to="notification" className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer"
-                    onClick={onClick}
-                >
-                    {location === "/notification" ? <IoMdNotifications size={30} /> : <IoMdNotificationsOutline size={30} />}
-                </li>
+                
                 <li data-move={true} data-to="write" onClick={onClick} className="p-4 flex flex-grow justify-center lg:flex-grow-0 lg:mx-2 lg:my-8 lg:p-2 lg:w-[60px] lg:h-[30px] lg:flex lg:justify-center lg:items-center lg:cursor-pointer">
                     {location === "/write" ? <HiPencilSquare size={30} /> : <HiOutlinePencilSquare size={30} />}
                 </li>

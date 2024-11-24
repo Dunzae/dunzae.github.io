@@ -48,9 +48,7 @@ function SettingComponent() {
                     : <div className="w-full h-16 p-4 text-xl border-b border-b-gray-200 cursor-pointer" onClick={logoutOnClick}>
                         로그아웃
                     </div>}
-                <div className="w-full h-16 p-4 text-xl border-b border-b-gray-200 cursor-pointer">
-                    관리 페이지
-                </div>
+                
             </div>
         </div>
     )

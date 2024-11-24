@@ -34,22 +34,12 @@ function Post({
 
 
             <div className="flex justify-between items-center p-4">
-                <div className="flex gap-2">
-                    <div className="w-[20px] h-[20px] flex items-center flex-shrink-0 ">
-                        <FcLike size={20} />
-                    </div>
-                    <div>
-                        {likeNum}
-                    </div>
+                <div className="text-right">
+                    작성자 - {author}
                 </div>
-                <div>
-                    <div className="text-right">
-                        작성자 - {author}
-                    </div>
 
-                    <div>
-                        {timeToLocalTime(createDate)}
-                    </div>
+                <div>
+                    {timeToLocalTime(createDate)}
                 </div>
             </div>
         </div>

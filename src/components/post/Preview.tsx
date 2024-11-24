@@ -24,9 +24,7 @@ function PostPreviewComponent({
         <div className={`flex flex-col lg:flex-row lg:max-h-[255px] overflow-y-hidden gap-4 mb-4 justify-between`}>
             <div className="flex flex-grow flex-col">
                 <div className="flex flex-row items-center mb-2 lg:mb-4">
-                    <span>
-                        <img src={ProfileImage} className="w-[30px] h-[30px] rounded-[50%] mr-2" />
-                    </span>
+                   
                     <span className="text-[14px] text-[#292929] font-NanumGothic font-bold">{profile}</span>
                     <span className="mx-2">·</span>
                     <span className="flex items-center text-[12px] text-[#757575] font-NanumGothic font-bold">{timeToLocalTime(createDate)}</span>
@@ -44,14 +42,6 @@ function PostPreviewComponent({
         </div>
         <div className="flex justify-between mb-4">
             <div className="flex items-center">
-                <div className="flex p-2 justify-center items-center gap-2 w-fit mr-2 cursor-pointer">
-                    <div className="w-[20px] h-[20px] flex items-center flex-shrink-0 ">
-                        <FcLike size={20} />
-                    </div>
-                    <div className="w-[20px] h-[20px] flex font-Poppins font-bold relative">
-                        {like}
-                    </div>
-                </div>
                 <span className="p-3 rounded-[20%] color-[#757575] border border-slate-200 font-normal font-Titillium shadow-2xl">{timeToRead(content.length)}</span>
             </div>
             <div className="flex items-center flex-grow-0 basis-0 cursor-pointer">
