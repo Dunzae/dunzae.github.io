@@ -50,11 +50,22 @@ function Editor() {
             Image,
             Youtube,
             Document,
-            Paragraph,
+            Paragraph.configure({
+                HTMLAttributes: {
+                    class: "not-prose text-xl font-NanumGothic"
+                }
+            }),
             Blockquote,
-            BulletList,
+            BulletList.configure({
+                HTMLAttributes: {
+                    class : "list-disc ml-2"
+                }
+            }),
             ListItem,
             Heading.configure({
+                HTMLAttributes : {
+                    class : ""
+                },
                 levels: [1, 2, 3]
             }),
             TaskList,
@@ -69,11 +80,14 @@ function Editor() {
         ],
         editorProps: {
             attributes: {
-                class: `max-w-full prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl my-5 focus:outline-none`,
+                class: `max-w-full prose lg:prose-base focus:outline-none`,
             }
         },
         autofocus: true,
         content: content,
+        onUpdate: ({editor}) => {
+            setContent(editor.getHTML())
+        }
     })
 
     if (editor === null) return null;
