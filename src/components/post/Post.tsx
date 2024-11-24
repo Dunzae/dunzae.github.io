@@ -1,3 +1,6 @@
+import { timeToLocalTime } from "@utils/functions"
+import { FcLike } from "react-icons/fc";
+
 interface PostProps {
     author: string
     title: string
@@ -18,31 +21,34 @@ function Post({
     console.log(body);
 
     return (
-        <div className="p-4 h-full flex flex-col">
-            <div className="w-full relative mb-8 h-[100px] lg:h-[200px] shadow-xl lg:border lg:border-gray-300">
-                {thumbnail !== undefined && <img src={`${process.env.SERVER_URL}/images/thumbnails/${thumbnail}`} className="hidden lg:block w-full h-full object-cover absolute" />}
-                <div className=" w-full h-full flex justify-center items-center absolute">
-                    <div className="text-white text-center bg-black p-3 rounded-xl text-[40px] font-bold font-NanumGothic">
-                        {title}
-                    </div>
+        <div className="p-4 w-full h-full flex flex-col">
+            <div className="w-full p-6 flex items-center justify-center mb-4 shadow-xl lg:border lg:border-gray-300 flex-shrink-0 bg-white border border-neutral-200 rounded-xl relative">
+                {/* {thumbnail !== undefined && <img src={`${process.env.SERVER_URL}/images/thumbnails/${thumbnail}`} className="hidden lg:block w-full h-full object-cover absolute" />} */}
+                <div className="w-full text-3xl text-black text-center p-3 rounded-xl font-bold font-NanumGothic break-words ">
+                    {title}
                 </div>
             </div>
-            <div className="p-5 text-white shadow-xl bg-[#1f1f1f] rounded-xl flex-grow" dangerouslySetInnerHTML={{
+            <div className="p-5 text-black shadow-2xl rounded-xl flex-grow bg-white border border-neutral-300" dangerouslySetInnerHTML={{
                 __html: body
             }} />
 
 
-            <div className="flex justify-between">
-                <div>
-                    좋아요 수 : {likeNum}
+            <div className="flex justify-between items-center p-4">
+                <div className="flex gap-2">
+                    <div className="w-[20px] h-[20px] flex items-center flex-shrink-0 ">
+                        <FcLike size={20} />
+                    </div>
+                    <div>
+                        {likeNum}
+                    </div>
                 </div>
                 <div>
-                    <div>
-                        작성자 : {author}
+                    <div className="text-right">
+                        작성자 - {author}
                     </div>
 
                     <div>
-                        {createDate}
+                        {timeToLocalTime(createDate)}
                     </div>
                 </div>
             </div>
