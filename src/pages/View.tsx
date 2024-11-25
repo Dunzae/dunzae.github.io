@@ -44,6 +44,7 @@ function ViewPage() {
                 title={data.title}
                 body={data.body}
                 likeNum={data.likeNum}
+                comments={data.comments}
                 thumbnail={data.thumbnail}
                 createDate={data.createDate}
             />}
