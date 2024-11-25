@@ -38,13 +38,13 @@ function WritePage() {
                     <div className="p-2 flex flex-col w-full min-h-[300px] flex-shrink bg-white rounded-[20px]">
                         <AddBlock />
                     </div>
-                    <div className="px-3 py-3 flex-grow-0 overflow-y-auto bg-white font-Roboto flex-shrink-0"
+                    {/* <div className="px-3 py-3 flex-grow-0 overflow-y-auto bg-white font-Roboto flex-shrink-0"
                         style={{
                             scrollbarWidth: 'none'
                         }}
                     >
                         <GlobalTool />
-                    </div>
+                    </div> */}
 
                     <div className="flex flex-grow flex-row gap-2 justify-center lg:flex-shrink-0 lg:justify-end lg:flex-col ">
                         <ButtonGroup />
