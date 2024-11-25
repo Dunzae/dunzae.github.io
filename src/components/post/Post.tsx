@@ -24,8 +24,6 @@ function Post({
     thumbnail,
     createDate
 }: PostProps) {
-    console.log(body);
-
     return (
         <div className="p-4 w-full h-full flex flex-col gap-4">
             <div className="w-full p-6 flex items-center justify-center mb-4 lg:border lg:border-gray-300 flex-shrink-0 bg-white border border-neutral-200 rounded-xl relative">
