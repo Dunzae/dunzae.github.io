@@ -8,6 +8,7 @@ import PreviewComponent from "./Preview";
 import SubmitComponent from "./Submit";
 import SettingComponent from "./Setting";
 import FailComponent from "./Fail";
+import SuccessComponent from "./Success";
 
 function ModalComponent() {
     const dispatch = useAppDispatch();
@@ -28,6 +29,7 @@ function ModalComponent() {
                 {type === "Submit" && <SubmitComponent />}
                 {type === "Setting" && <SettingComponent />}
                 {type === "Fail" && <FailComponent />}
+                {type === "Success" && <SuccessComponent />}
             </div>
         </div>
     )
