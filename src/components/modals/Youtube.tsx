@@ -1,17 +1,23 @@
 import { setHidden } from "@slices/modal";
 import { IoSend } from "react-icons/io5";
 import { useAppDispatch, useAppSelector } from "@slices/store";
-import { KeyboardEvent } from "react";
+import { KeyboardEvent, useState } from "react";
 
 import ExitIcon from "@assets/icons/exit.png";
 
 function YoutubeComponent() {
+    const [url, setUrl] = useState("");
     const dispatch = useAppDispatch();
     const editor = useAppSelector(({ editor }) => editor.editor)
     const editorWidth = useAppSelector(({ editor }) => editor.width);
 
     const exitOnClick = () => {
         dispatch(setHidden(true));
+    }
+
+    const onSubmitClick = () => {
+        dispatch(setHidden(true));
+        editor?.chain().focus().setYoutubeVideo({ src: url, width: editorWidth - 32 }).run();
     }
 
     const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -29,7 +35,7 @@ function YoutubeComponent() {
             <div
                 className="absolute top-0 right-0 cursor-pointer flex items-center"
             >
-                <div onClick={exitOnClick}>
+                <div onClick={onSubmitClick}>
                     <IoSend size={40} />
                 </div>
                 <div onClick={exitOnClick}>
@@ -41,6 +47,8 @@ function YoutubeComponent() {
             </div>
             <div className="flex w-full h-full items-end bg-[url('./assets/images/youtubeBackgournd.png')] bg-cover bg-no-repeat bg-[50%_100%]">
                 <input type="text"
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
                     onKeyDown={onKeyDown}
                     className="outline-none w-full h-10 font-NanumGothic font-bold text-xl px-5 py-8"
                     placeholder="유투브 URL 주소를 입력해주세요"
