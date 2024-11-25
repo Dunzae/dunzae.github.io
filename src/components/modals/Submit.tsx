@@ -54,7 +54,7 @@ function SubmitComponent() {
             }
 
         }
-    }, [editor, thumbnail, accessToken, title])
+    }, [editor, thumbnail, accessToken, title, ax, dispatch])
 
     const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
         if (e.dataTransfer) {
