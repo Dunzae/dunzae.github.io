@@ -21,8 +21,8 @@ function PostPreviewComponent({
     like,
 }: IPostPreviewComponent) {
     return <div className="border-b-2 p-4 mb-4 border-[#E6E6E6] bg-white rounded-[20px] lg:min-w-[660px]">
-        <div className={`flex flex-col lg:flex-row lg:max-h-[255px] overflow-x-auto overflow-y-hidden gap-4 mb-4 justify-between`}>
-            <div className="flex flex-grow flex-col w-[60%] basis-0">
+        <div className={`flex flex-col lg:flex-row lg:max-h-[255px] overflow-x-hidden overflow-y-hidden gap-4 mb-4 justify-between`}>
+            <div className="flex flex-grow flex-col lg:w-[60%] basis-0">
                 <div className="flex flex-row items-center mb-2 lg:mb-4">
                     <span className="text-[14px] text-[#292929] font-NanumGothic font-bold">{profile}</span>
                     <span className="mx-2">·</span>
