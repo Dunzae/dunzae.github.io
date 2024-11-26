@@ -57,7 +57,7 @@ function Post({
                     {title}
                 </div>
             </div>
-            <div className="p-5 mb-4 text-black shadow-lg rounded-xl flex-grow bg-white border border-neutral-300" dangerouslySetInnerHTML={{
+            <div className="p-5 mb-4 text-black shadow-lg rounded-xl flex-grow bg-white border border-neutral-300 break-words" dangerouslySetInnerHTML={{
                 __html: body
             }} />
 
