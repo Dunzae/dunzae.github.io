@@ -26,9 +26,16 @@ function SubmitComponent() {
             alert("로그인되지 않았습니다.");
             return router.navigate("/login");
         } else {
-            const post = editor?.getHTML()
-            const formData = new FormData();
+            if (editor === null) return;
+            const post = editor.getHTML();
 
+            const regexp = /blob:[^"]+/g
+            let match;
+            const formData = new FormData();
+            while ((match = regexp.exec(post)) !== null) {
+                const file = await (await fetch(match[0])).blob()
+                formData.append("images", file);
+            }
             formData.append("title", title);
             formData.append("body", post ?? "");
             if (ref.current !== null && ref.current?.files !== null) {

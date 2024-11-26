@@ -17,7 +17,6 @@ function BubbleMenuComponent() {
                 }}
                 onChange={(e) => {
                     setFontType(e.target.value);
-                    editor.chain().focus().setFontFamily(e.target.value).run();
                 }}
                 className="font-Roboto w-[100px] outline-none text-center text-[14px] cursor-poiasdasdnter">
                 <option className="font-Roboto" value="Roboto">Roboto</option>
@@ -33,7 +32,6 @@ function BubbleMenuComponent() {
                 }}
                 onChange={(e) => {
                     setFontWeight(e.target.value)
-                    editor.chain().focus().setFontWeight(e.target.value).run();
                 }}
                 className="font-Roboto w-[100px] outline-none text-center text-[14px] cursor-pointer">
                 <option className="font-normal" value="normal">normal</option>

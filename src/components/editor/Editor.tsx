@@ -17,7 +17,6 @@ import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
 
 // Mark
 import Bold from '@tiptap/extension-bold'
-import CustomTextStyle from "./CustomTextStyle";
 import BubbleMenuExtension from "@tiptap/extension-bubble-menu";
 
 // components
@@ -47,7 +46,9 @@ function Editor() {
         extensions: [
             Text,
             Bold,
-            Image,
+            Image.configure({
+                allowBase64: true,
+            }),
             Youtube,
             Document,
             Paragraph.configure({
@@ -58,13 +59,13 @@ function Editor() {
             Blockquote,
             BulletList.configure({
                 HTMLAttributes: {
-                    class : "list-disc ml-2"
+                    class: "list-disc ml-2"
                 }
             }),
             ListItem,
             Heading.configure({
-                HTMLAttributes : {
-                    class : ""
+                HTMLAttributes: {
+                    class: ""
                 },
                 levels: [1, 2, 3]
             }),
@@ -75,7 +76,6 @@ function Editor() {
             CodeBlockLowlight.configure({
                 lowlight,
             }),
-            CustomTextStyle,
             BubbleMenuExtension,
         ],
         editorProps: {
@@ -85,7 +85,7 @@ function Editor() {
         },
         autofocus: true,
         content: content,
-        onUpdate: ({editor}) => {
+        onUpdate: ({ editor }) => {
             setContent(editor.getHTML())
         }
     })
@@ -98,7 +98,7 @@ function Editor() {
 
     return (
         <div className="relative">
-            <EditorContent editor={editor}/>
+            <EditorContent editor={editor} />
             <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
                 <BubbleMenuComponent />
             </BubbleMenu>
