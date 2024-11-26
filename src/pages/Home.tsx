@@ -79,11 +79,12 @@ function HomePage() {
                             />
                         </Link>
                     ))}
+                    <div
+                        className="w-full h-[100px]" ref={ref}
+                    />
                 </div>
             </div>
-            <div
-                className="w-full h-[100px]" ref={ref}
-            />
+
         </LayoutComponent>
     )
 }

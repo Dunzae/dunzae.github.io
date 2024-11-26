@@ -29,7 +29,7 @@ function LayoutComponent({
                     </div>
                 </div>
             </div>
-            <div className={`w-full h-full relative z-1 overflow-y-scroll pb-20`}>
+            <div className={`w-full h-full relative z-1 overflow-y-scroll`}>
                 {children}
             </div>
         </div>
