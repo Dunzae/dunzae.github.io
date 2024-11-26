@@ -50,7 +50,7 @@ function Post({
     }
 
     return (
-        <div className="p-4 w-full h-full flex flex-col gap-4 tiptap">
+        <div className="p-4 w-full h-full flex flex-col gap-4 tiptap prose max-w-full">
             <div className="w-full p-6 flex items-center justify-center mb-4 lg:border lg:border-gray-300 flex-shrink-0 bg-white border border-neutral-200 rounded-xl relative">
                 {/* {thumbnail !== undefined && <img src={`${process.env.SERVER_URL}/images/thumbnails/${thumbnail}`} className="hidden lg:block w-full h-full object-cover absolute" />} */}
                 <div className="w-full text-3xl text-black text-center p-3 rounded-xl font-bold font-NanumGothic break-words ">
