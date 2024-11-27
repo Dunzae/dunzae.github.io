@@ -1,6 +1,6 @@
 import LayoutComponent from "@components/common/Layout";
 import Loading from "@components/common/Loading";
-import Post from "@components/post/Post";
+import Post from "@containers/post/Post";
 import { useQuery } from "@tanstack/react-query";
 import ax from "@utils/axios";
 import { useEffect } from "react";
@@ -53,13 +53,7 @@ function ViewPage() {
         <LayoutComponent>
             {isLoading ? <Loading /> :
                 (data && <Post
-                    author={data.author}
-                    title={data.title}
-                    body={data.body}
-                    likeNum={data.likeNum}
-                    comments={data.comments}
-                    thumbnail={data.thumbnail}
-                    createDate={data.createDate}
+                    post={data}
                 />)
             }
 
