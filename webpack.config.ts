@@ -62,6 +62,7 @@ module.exports = {
     },
     plugins: [
         new CssMinimizerPlugin(),
+        new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
             template: './public/index.html',
         }),
