@@ -17,7 +17,7 @@ function Toc({ body }: TocProps) {
         ), [body])
 
     return (
-        <nav aria-label="Table of contents" className="sticky top-6 max-h-[calc(100vh-40px)] overflow-auto">
+        <nav aria-label="Table of contents" className="hidden lg:block sticky top-6 max-h-[calc(100vh-40px)] overflow-auto">
             <ul>
                 {table.map(header =>
                     <li key={header.id} className={`${header.type === "H2" && "ml-2"} ${header.type === "H3" && "ml-4"} font-bold`}>
