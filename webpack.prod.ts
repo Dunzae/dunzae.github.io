@@ -2,6 +2,8 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 import dotenv from "dotenv";
 import { DefinePlugin } from 'webpack';
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 dotenv.config({ path: './.env.production' });
 
@@ -11,19 +13,30 @@ module.exports = {
     output: {
         filename: 'bundle.js',
     },
+    plugins: [
+        new CssMinimizerPlugin(),
+        new MiniCssExtractPlugin(),
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+        }),
+        new DefinePlugin({
+            "process.env": JSON.stringify(process.env),
+        })
+    ],
+
     module: {
         rules: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
             { test: /\.tsx?$/, loader: "ts-loader" },
             {
                 test: /\.css?$/,
-                use: ['style-loader', 'css-loader', "postcss-loader"],
+                use: [MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader"],
             },
             {
                 test: /\.s[ac]ss$/i,
                 use: [
                     // Creates `style` nodes from JS strings
-                    "style-loader",
+                    MiniCssExtractPlugin.loader,
                     // Translates CSS into CommonJS
                     "css-loader",
                     // Compiles Sass to CSS
@@ -49,12 +62,10 @@ module.exports = {
             '@containers': path.resolve(__dirname, 'src/containers'),
         }
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './public/index.html',
-        }),
-        new DefinePlugin({
-            "process.env": JSON.stringify(process.env),
-        })
-    ]
+    optimization : {
+        minimizer : [
+            new CssMinimizerPlugin()
+        ]
+    },
+    
 }

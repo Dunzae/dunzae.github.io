@@ -2,6 +2,8 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 import dotenv from "dotenv";
 import { DefinePlugin } from 'webpack';
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 dotenv.config({ path: './.env.development' });
 
@@ -20,13 +22,13 @@ module.exports = {
             { test: /\.js?$/, loader: "source-map-loader" },
             {
                 test: /\.css?$/,
-                use: ['style-loader', 'css-loader', "postcss-loader"],
+                use: [MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader"],
             },
             {
                 test: /\.s[ac]ss$/i,
                 use: [
                     // Creates `style` nodes from JS strings
-                    "style-loader",
+                    MiniCssExtractPlugin.loader,
                     // Translates CSS into CommonJS
                     "css-loader",
                     // Compiles Sass to CSS
@@ -53,7 +55,13 @@ module.exports = {
             '@containers': path.resolve(__dirname, 'src/containers'),
         }
     },
+    optimization : {
+        minimizer : [
+            new CssMinimizerPlugin()
+        ]
+    },
     plugins: [
+        new CssMinimizerPlugin(),
         new HtmlWebpackPlugin({
             template: './public/index.html',
         }),
