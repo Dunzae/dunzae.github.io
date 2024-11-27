@@ -8,28 +8,46 @@ import ProfilePage from '@pages/Profile';
 
 const router = createHashRouter([
     {
-        'path' : '/',
-        element : <HomePage />
+        'path': '/',
+        async lazy() {
+            const HomePage = await import("./pages/Home");
+            return { Component: HomePage.default }
+        }
     },
     {
-        "path" : "/write",
-        element : <WritePage />
+        "path": "/write",
+        async lazy() {
+            const WritePage = await import("./pages/Write");
+            return { Component: WritePage.default }
+        }
     },
     {
-        path : "/view",
-        element : <ViewPage />
+        path: "/view",
+        async lazy() {
+            const ViewPage = await import("./pages/View");
+            return { Component: ViewPage.default }
+        }
     },
     {
-        path : "/login",
-        element : <LoginPage />
+        path: "/login",
+        async lazy() {
+            const LoginPage = await import("./pages/Login");
+            return { Component: LoginPage.default }
+        }
     },
     {
-        path : "/register",
-        element : <RegisterPage />
+        path: "/register",
+        async lazy() {
+            const RegisterPage = await import("./pages/Register");
+            return { Component: RegisterPage.default }
+        }
     },
     {
-        path : "/profile",
-        element : <ProfilePage />
+        path: "/profile",
+        async lazy() {
+            const ProfilePage = await import("./pages/Profile");
+            return { Component: ProfilePage.default }
+        }
     }
 ])
 
