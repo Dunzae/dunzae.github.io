@@ -1,7 +1,7 @@
 import { setHidden } from "@slices/modal";
 import { useAppDispatch, useAppSelector } from "@slices/store";
 import router from "../../router";
-import ExitIcon from "@assets/icons/exit.png";
+import ExitIcon from "@assets/icons/exit.webp";
 import { setAccessToken, setRefreshToken } from "@slices/auth";
 import { removeLocalStorageItem, setLocalStorageItem } from "@utils/storage";
 

@@ -3,7 +3,7 @@ import { IoSend } from "react-icons/io5";
 import { useAppDispatch, useAppSelector } from "@slices/store";
 import { KeyboardEvent, useState } from "react";
 
-import ExitIcon from "@assets/icons/exit.png";
+import ExitIcon from "@assets/icons/exit.webp";
 
 function YoutubeComponent() {
     const [url, setUrl] = useState("");
@@ -45,7 +45,7 @@ function YoutubeComponent() {
             <div className="font-NanumGothic text-3xl p-5 font-bold border-b border-b-slate-300">
                 유투브 주소 입력
             </div>
-            <div className="flex w-full h-full items-end bg-[url('./assets/images/youtubeBackgournd.png')] bg-cover bg-no-repeat bg-[50%_100%]">
+            <div className="flex w-full h-full items-end bg-[url('./assets/images/youtubeBackgournd.webp')] bg-cover bg-no-repeat bg-[50%_100%]">
                 <input type="text"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}

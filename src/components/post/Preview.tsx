@@ -1,5 +1,4 @@
-import ProfileImage from "@assets/images/profile.jpg"
-import EmptyThumbnailImage from "@assets/images/emptyThumbnail.png";
+import EmptyThumbnailImage from "@assets/images/emptyThumbnail.webp";
 import { FcLike } from "react-icons/fc";
 import { IoIosMore } from "react-icons/io";
 import { timeToLocalTime, timeToRead } from "@utils/functions";

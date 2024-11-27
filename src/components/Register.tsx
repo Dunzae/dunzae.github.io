@@ -27,7 +27,7 @@ function RegisterComponent({
     passwordPattern
 }: IProps) {
     return (
-        <div className="h-dvh flex justify-center items-center bg-[url('assets/images/background.png')] bg-no-repeat bg-cover">
+        <div className="h-dvh flex justify-center items-center bg-[url('assets/images/background.webp')] bg-no-repeat bg-cover">
             <form onSubmit={onSubmit} className="max-w-[350px] border border-white border-opacity-30 backdrop-blur-md rounded-lg overflow-hidden flex-1 py-[10px]">
                 <div className="flex w-full pb-[10px] my-[10px] ">
                     <div className="w-full flex justify-center py-[10px]">

@@ -1,4 +1,4 @@
-import ProfileImage from "@assets/images/profile.jpg";
+import ProfileImage from "@assets/images/profile.webp";
 
 function NotificationComponent() {
     return (

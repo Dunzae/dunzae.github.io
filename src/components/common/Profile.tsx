@@ -1,4 +1,4 @@
-import profileImage from "@assets/images/profile.jpg"
+import profileImage from "@assets/images/profile.webp"
 import { FaGithub } from "react-icons/fa";
 import { SiTistory } from "react-icons/si";
 

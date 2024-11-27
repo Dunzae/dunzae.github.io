@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from "react";
-import ExitIcon from "@assets/icons/exit.png";
+import ExitIcon from "@assets/icons/exit.webp";
 import { IoSend } from "react-icons/io5";
 import { setHidden, setType } from "@slices/modal";
 import { useAppDispatch, useAppSelector } from "@slices/store";

@@ -1,15 +1,15 @@
 import { useAppDispatch } from "@slices/store";
 import { setHidden } from "@slices/modal";
 
-import ExitIcon from "@assets/icons/exit.png";
+import ExitIcon from "@assets/icons/exit.webp";
 
 // special key
-import ControlKey from "@assets/icons/controlKey.png";
+import ControlKey from "@assets/icons/controlKey.webp";
 
 // button
-import BButton from "@assets/icons/bButton.png"
-import CButton from "@assets/icons/cButton.png";
-import VButton from "@assets/icons/vButton.png";
+import BButton from "@assets/icons/bButton.webp"
+import CButton from "@assets/icons/cButton.webp";
+import VButton from "@assets/icons/vButton.webp";
 
 
 function ShortCutComponent() {
@@ -21,7 +21,7 @@ function ShortCutComponent() {
     return (
         <div
             onClick={(e) => e.stopPropagation()}
-            className="w-[80%] h-[80%] bg-white border border-gray-200 relative rounded-xl shadow-lg bg-[url('./assets/images/shortcutBackgournd.png')] bg-contain bg-no-repeat bg-[50%_50%]"
+            className="w-[80%] h-[80%] bg-white border border-gray-200 relative rounded-xl shadow-lg bg-[url('./assets/images/shortcutBackgournd.webp')] bg-contain bg-no-repeat bg-[50%_50%]"
         >
             <div
                 onClick={exitOnClick}

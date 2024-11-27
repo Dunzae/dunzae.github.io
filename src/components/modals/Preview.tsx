@@ -1,7 +1,7 @@
 import { setHidden } from "@slices/modal";
 import { useAppDispatch, useAppSelector } from "@slices/store";
 
-import ExitIcon from "@assets/icons/exit.png";
+import ExitIcon from "@assets/icons/exit.webp";
 import { useRef } from "react";
 
 function PreviewComponent() {

@@ -1,5 +1,5 @@
 import LayoutComponent from "@components/common/Layout";
-import ProfileImage from "@assets/images/profileImage.jpg";
+import ProfileImage from "@assets/images/profileImage.webp";
 
 function ProfilePage() {
     return (

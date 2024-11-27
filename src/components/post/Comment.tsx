@@ -1,4 +1,4 @@
-import ProfileImage from "@assets/images/user-fill.png"
+import ProfileImage from "@assets/images/user-fill.webp"
 
 interface CommentProps {
     author: string,

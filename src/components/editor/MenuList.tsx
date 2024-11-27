@@ -1,13 +1,13 @@
 import { useAppDispatch, useAppSelector } from "@slices/store";
-import TodoIcon from "@assets/icons/Todo.png"
-import Header1Icon from "@assets/icons/header1.png";
-import Header2Icon from "@assets/icons/header2.png"
-import Header3Icon from "@assets/icons/header3.png"
-import BlockQuoteIcon from "@assets/icons/blockquote.png"
-import BulletIcon from "@assets/icons/bullet.png"
-import CodeIcon from "@assets/icons/code.png"
-import ImageIcon from "@assets/icons/image.png"
-import YoutubeIcon from "@assets/icons/youtube.png"
+import TodoIcon from "@assets/icons/Todo.webp"
+import Header1Icon from "@assets/icons/header1.webp";
+import Header2Icon from "@assets/icons/header2.webp"
+import Header3Icon from "@assets/icons/header3.webp"
+import BlockQuoteIcon from "@assets/icons/blockquote.webp"
+import BulletIcon from "@assets/icons/bullet.webp"
+import CodeIcon from "@assets/icons/code.webp"
+import ImageIcon from "@assets/icons/image.webp"
+import YoutubeIcon from "@assets/icons/youtube.webp"
 import MenuCell from "./MenuCell";
 import { useRef } from "react";
 import { setHidden, setType } from "@slices/modal";

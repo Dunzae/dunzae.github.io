@@ -1,4 +1,4 @@
-import LoadingImage from "@assets/images/loading.png"
+import LoadingImage from "@assets/images/loading.webp"
 import { motion } from "motion/react";
 
 function Loading() {
