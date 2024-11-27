@@ -5,7 +5,7 @@ function TitleComponent() {
         <div className="w-full text-center flex-shirink-0 h-auto border-b border-b-gray-200 lg:border-b-0">
             {/* 블로그 이름 */}
             <Link to="/">
-                <div className="text-[60px] text-white font-[Agdasima] font-light ">
+                <div className="text-[60px] text-black lg:text-white font-[Agdasima] font-light ">
                     LogSomething
                 </div>
             </Link>
