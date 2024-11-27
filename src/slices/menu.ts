@@ -1,29 +1,34 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface IMenu {
+  isFold: boolean,
   location: string,
-  slideMenuHidden : boolean,
+  slideMenuHidden: boolean,
 }
 
 const initialState: IMenu = {
-  location : '/',
-  slideMenuHidden : true,
+  isFold: false,
+  location: '/',
+  slideMenuHidden: true,
 }
 
 export const menuSlice = createSlice({
   name: 'menu',
   initialState,
   reducers: {
-    setLocation : (state, action : PayloadAction<string>) => {
+    toggleIsFold: (state) => {
+      state.isFold = !state.isFold
+    },
+    setLocation: (state, action: PayloadAction<string>) => {
       state.location = action.payload
     },
-    setSlideMenuHidden : (state, action : PayloadAction<boolean>) => {
+    setSlideMenuHidden: (state, action: PayloadAction<boolean>) => {
       state.slideMenuHidden = action.payload;
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setLocation, setSlideMenuHidden } = menuSlice.actions
+export const { toggleIsFold, setLocation, setSlideMenuHidden } = menuSlice.actions
 
 export default menuSlice.reducer
