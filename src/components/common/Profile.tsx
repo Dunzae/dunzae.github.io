@@ -3,14 +3,10 @@ import { SiTistory } from "react-icons/si";
 
 interface IProfileComponent {
     className?: string,
-    nameColor?: string,
-    tagColor?: string
 }
 
 function ProfileComponent({
     className,
-    nameColor,
-    tagColor,
 }: IProfileComponent) {
     return (
         <div className={"w-full flex flex-col flex-shrink-0 "} >
@@ -19,9 +15,9 @@ function ProfileComponent({
                 <div className="w-[200px] h-[230px] rounded-[20%] overflow-hidden flex mb-4 bg-[url('assets/images/profile.webp')] bg-cover" />
             </div >
             {/* 프로필란 */}
-            <div className="flex flex-col text-center text-white font-bold mb-2" >
-                <div style={{color : nameColor}}className="text-[30px] mb-[15px]">Dunzae</div>
-                <div style={{color : tagColor}} className="px-[10px] text-[15px] text-gray-400">
+            <div className="flex flex-col text-center font-bold mb-2 " >
+                <div className="text-[30px] mb-[15px] text-white">Dunzae</div>
+                <div className="px-[10px] text-[15px] text-gray-400">
                     <span className="p-2"># 1999년생</span>
                     <span className="p-2"># OS</span>
                     <span className="p-2"># Web</span> <br />

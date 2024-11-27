@@ -10,8 +10,7 @@ function SideBarComponent() {
                 </div>
                 <div className="hidden lg:flex">
                     <ProfileComponent
-                        nameColor="white"
-                        tagColor="gray"
+
                     />
                 </div>
             </div>
