@@ -1,4 +1,3 @@
-import profileImage from "@assets/images/profile.webp"
 import { FaGithub } from "react-icons/fa";
 import { SiTistory } from "react-icons/si";
 
@@ -17,9 +16,7 @@ function ProfileComponent({
         <div className={"w-full flex flex-col flex-shrink-0 "} >
             {/* 프로필 이미지 */}
             <div className="flex justify-center" >
-                <div className="w-[200px] rounded-[20%] overflow-hidden flex mb-4">
-                    <img className="w-full h-full cover" src={profileImage} />
-                </div>
+                <div className="w-[200px] h-[230px] rounded-[20%] overflow-hidden flex mb-4 bg-[url('assets/images/profile.webp')] bg-cover" />
             </div >
             {/* 프로필란 */}
             <div className="flex flex-col text-center text-white font-bold mb-2" >
