@@ -4,7 +4,7 @@ import SlideMenuComponent from "@components/common/menu/SlideMenu";
 import { toggleIsFold } from "@slices/menu";
 import { useAppDispatch, useAppSelector } from "@slices/store";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useMediaQuery } from 'react-responsive'
 
 interface ILayoutComponent {
     children: React.ReactNode
@@ -13,20 +13,21 @@ interface ILayoutComponent {
 function LayoutComponent({
     children
 }: ILayoutComponent) {
+    const modalHidden = useAppSelector(({ modal }) => modal.hidden)
+    const slideMenuHidden = useAppSelector(({ menu }) => menu.slideMenuHidden)
     const isFold = useAppSelector(({ menu }) => menu.isFold)
     const dispatch = useAppDispatch();
+
+    const isDesktop = useMediaQuery({ query: '(min-width : 1024px)' });
 
     const foldOnClick = () => {
         dispatch(toggleIsFold());
     }
 
-    const modalHidden = useAppSelector(({ modal }) => modal.hidden)
-    const slideMenuHidden = useAppSelector(({ menu }) => menu.slideMenuHidden)
-    const location = useAppSelector(({ menu }) => menu.location)
     return (
         <div className={`pb-[62px] box-border lg:pb-0 lg:h-dvh lg:flex lg:flex-row ${modalHidden ? 'overflow-y-visible' : 'overflow-y-hidden'}`}>
             <motion.div
-                animate={isFold ? {
+                animate={!isDesktop ? {} : isFold ? {
                     transform: "translateX(-100%)",
                     minWidth: "0%",
                     width: "0%"
@@ -35,7 +36,7 @@ function LayoutComponent({
                     minWidth: "320px",
                     width: "24%"
                 }}
-                initial={isFold ? {
+                initial={!isDesktop ? {} : isFold ? {
                     transform: "translateX(-100%)",
                     minWidth: "0%",
                     width: "0%"
@@ -45,7 +46,7 @@ function LayoutComponent({
                     width: "24%"
                 }}
                 transition={{ duration: .2, ease: "linear" }}
-                className="bg-white lg:min-w-[320px] lg:w-[24%] lg:h-full lg:flex-shrink-0 lg:overflow-x-hidden">
+                className="w-full bg-white lg:min-w-[320px] lg:w-[24%] lg:h-full lg:flex-shrink-0 lg:overflow-x-hidden">
                 <SideBarComponent isFold={isFold} isFoldOnClick={foldOnClick} />
             </motion.div>
             {/* 사이드 메뉴바 */}
