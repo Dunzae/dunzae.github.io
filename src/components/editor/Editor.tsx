@@ -53,7 +53,7 @@ function Editor() {
             Document,
             Paragraph.configure({
                 HTMLAttributes: {
-                    class: "not-prose text-xl font-NanumGothic"
+                    class: "not-prose text-lg font-NanumGothic"
                 }
             }),
             Blockquote,
