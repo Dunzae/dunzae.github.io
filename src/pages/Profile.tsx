@@ -7,7 +7,7 @@ function ProfilePage() {
             <div className="flex flex-col gap-4 h-full">
                 <div className="font-NanumGothic font-bold shadow-md border border-gray-200 w-full flex flex-col lg:flex-row p-5 gap-4">
                     <div className="w-full h-auto lg:w-[190px] lg:h-[270px] flex-shrink-0 ">
-                        <img src={ProfileImage} className="w-full h-full" />
+                        <img src={ProfileImage} className="w-full h-full" alt="profile image"/>
                     </div>
                     <div>
                         <div className="mb-2">

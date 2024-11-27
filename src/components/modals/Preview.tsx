@@ -23,7 +23,7 @@ function PreviewComponent() {
                 onClick={exitOnClick}
                 className="absolute top-0 right-0 cursor-pointer"
             >
-                <img src={ExitIcon} className="w-20 h-20" />
+                <img src={ExitIcon} className="w-20 h-20" alt="exit"/>
             </div>
             <div className="font-NanumGothic text-3xl p-5 font-bold border-b border-b-slate-300">
                 게시글 미리보기

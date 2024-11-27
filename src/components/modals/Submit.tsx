@@ -102,7 +102,7 @@ function SubmitComponent() {
                     <IoSend size={40} />
                 </div>
                 <div onClick={exitOnClick}>
-                    <img src={ExitIcon} className="w-20 h-20" />
+                    <img src={ExitIcon} className="w-20 h-20" alt="exit"/>
                 </div>
             </div>
             <div className="font-NanumGothic text-3xl p-5 font-bold border-b border-b-slate-300">
@@ -118,7 +118,7 @@ function SubmitComponent() {
             </div>
             <div className="w-full h-full flex-grow border-4 border-black-200 border-dashed flex justify-center items-center overflow-hidden text-gray-500 font-NanumGothic" onDrop={onDrop} onClick={onPictureClick}>
                 {thumbnail !== null ?
-                    <img src={thumbnail} className="w-full h-full object-contain object-center" />
+                    <img src={thumbnail} className="w-full h-full object-contain object-center" alt="post thumbnail"/>
                     : "사진을 드래그하거나 클릭해주세요."}
                 <input
                     ref={ref}

@@ -10,8 +10,8 @@ function NotificationComponent() {
                 {/* 프로필과 알림 내용을 위한 div */}
                 <div className="flex">
                     <div className="flex-shrink-0 basis-0 mr-[12px] ">
-                        <div className="w-[44px] h-[44px] rounded-[50%] overflow-hidden">
-                            <img src={ProfileImage} />
+                        <div className="w-[44px] h-[44px] rounded-[50%] overflow-hidden ">
+                            <img src={ProfileImage} alt="profile Image"/>
                         </div>
                     </div>
                     <div className="flex flex-col flex-grow justify-center flex-shrink leading-[18px] text-[14px] break-words whitespace-pre-line">

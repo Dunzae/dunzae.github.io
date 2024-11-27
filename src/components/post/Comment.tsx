@@ -19,7 +19,7 @@ function Comment({
                 >
                     <img
                         src={ProfileImage}
-                        alt="user"
+                        alt="user profile image"
                         width={40}
                         height={40}
                         className=""

@@ -35,7 +35,7 @@ function PostPreviewComponent({
                 </div>
             </div>
             <div className="w-full h-auto lg:basis-[250px] lg:h-[250px] lg:flex-shrink-0 lg:flex-grow-0">
-                <img className="w-full h-full object-cover" src={thumbnail ? thumbnail : EmptyThumbnailImage} />
+                <img className="w-full h-full object-cover" src={thumbnail ? thumbnail : EmptyThumbnailImage} alt="post thumbnail"/>
             </div>
         </div>
         <div className="flex justify-between mb-4">

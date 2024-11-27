@@ -14,7 +14,7 @@ function SuccessComponent() {
                 className="absolute top-0 right-0 cursor-pointer flex items-center"
             >
                 <div onClick={exitOnClick}>
-                    <img src={ExitIcon} className="w-20 h-20" />
+                    <img src={ExitIcon} className="w-20 h-20" alt="exit"/>
                 </div>
             </div>
             <div className="font-NanumGothic text-3xl p-5 font-bold border-b border-b-slate-300 w-full h-full flex items-center justify-center">

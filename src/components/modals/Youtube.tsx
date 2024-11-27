@@ -39,7 +39,7 @@ function YoutubeComponent() {
                     <IoSend size={40} />
                 </div>
                 <div onClick={exitOnClick}>
-                    <img src={ExitIcon} className="w-20 h-20" />
+                    <img src={ExitIcon} className="w-20 h-20" alt="exit"/>
                 </div>
             </div>
             <div className="font-NanumGothic text-3xl p-5 font-bold border-b border-b-slate-300">

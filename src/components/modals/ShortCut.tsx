@@ -27,7 +27,7 @@ function ShortCutComponent() {
                 onClick={exitOnClick}
                 className="absolute top-0 right-0 cursor-pointer"
             >
-                <img src={ExitIcon} className="w-20 h-20" />
+                <img src={ExitIcon} className="w-20 h-20" alt="exit"/>
             </div>
             <div className="font-NanumGothic text-3xl p-5 font-bold border-b border-b-slate-300">
                 에디터 단축키
@@ -43,10 +43,10 @@ function ShortCutComponent() {
                             <div className="justify-center border border-slate-200 shadow-lg flex gap-2 items-center lg:justify-start px-4 py-2 rounded-2xl flex-wrap bg-white">
                                 <div className="flex gap-1">
                                     <div className="inline-block flex-shrink-0">
-                                        <img src={ControlKey} className="w-14 h-14 object-cover mx-1 box-border" />
+                                        <img src={ControlKey} className="w-14 h-14 object-cover mx-1 box-border" alt="control key" />
                                     </div>
                                     <div className="inline-block flex-shrink-0">
-                                        <img src={BButton} className="w-14 h-14 object-cover mx-1 box-border" />
+                                        <img src={BButton} className="w-14 h-14 object-cover mx-1 box-border" alt="B key"/>
                                     </div>
                                 </div>
 
@@ -62,10 +62,10 @@ function ShortCutComponent() {
                             <div className="justify-center border border-slate-200 shadow-lg flex gap-2 items-center lg:justify-start px-4 py-2 rounded-2xl flex-wrap bg-white">
                                 <div className="flex gap-1">
                                     <div className="inline-block flex-shrink-0">
-                                        <img src={ControlKey} className="w-14 h-14 object-cover mx-1 box-border" />
+                                        <img src={ControlKey} className="w-14 h-14 object-cover mx-1 box-border" alt="control key"/>
                                     </div>
                                     <div className="inline-block flex-shrink-0">
-                                        <img src={CButton} className="w-14 h-14 object-cover mx-1 box-border" />
+                                        <img src={CButton} className="w-14 h-14 object-cover mx-1 box-border" alt="C key"/>
                                     </div>
                                 </div>
 
@@ -81,10 +81,10 @@ function ShortCutComponent() {
                             <div className="justify-center border border-slate-200 shadow-lg flex gap-2 items-center lg:justify-start px-4 py-2 rounded-2xl flex-wrap bg-white">
                                 <div className="flex gap-1">
                                     <div className="inline-block flex-shrink-0">
-                                        <img src={ControlKey} className="w-14 h-14 object-cover mx-1 box-border" />
+                                        <img src={ControlKey} className="w-14 h-14 object-cover mx-1 box-border" alt="control key"/>
                                     </div>
                                     <div className="inline-block flex-shrink-0">
-                                        <img src={VButton} className="w-14 h-14 object-cover mx-1 box-border" />
+                                        <img src={VButton} className="w-14 h-14 object-cover mx-1 box-border" alt="V key"/>
                                     </div>
                                 </div>
 
