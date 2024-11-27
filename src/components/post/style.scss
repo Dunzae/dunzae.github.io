@@ -112,4 +112,17 @@
             font-weight: 700;
         }
     }
+
+    h2,
+    h3 {
+        scroll-margin-top: 16px;
+    }
+
+    @supports (-webkit-hyphens:none) {
+
+        h2,
+        h3 {
+            scroll-margin-top: 0;
+        }
+    }
 }

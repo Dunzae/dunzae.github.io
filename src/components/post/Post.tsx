@@ -1,10 +1,6 @@
 import "./style.scss";
 import Comment from "./Comment"
-import ax from "@utils/axios";
-import { useState } from "react";
-import { setHidden, setType } from "@slices/modal";
-import { useAppDispatch } from "@slices/store";
-import { useLocation } from "react-router-dom";
+import Toc from "./Toc";
 
 interface PostProps {
     author: string
@@ -19,7 +15,7 @@ interface PostProps {
     thumbnail: string
     createDate: string
     comment: string,
-    commentOnSubmit : () => void,
+    commentOnSubmit: () => void,
     commentOnChange: React.ChangeEventHandler<HTMLInputElement>
 }
 
@@ -36,16 +32,22 @@ function Post({
     commentOnChange
 }: PostProps) {
     return (
-        <div className="p-4 w-full h-full flex flex-col gap-4 tiptap prose max-w-full ">
+        <div className="p-4 w-full  max-w-full flex-shrink-0 h-full flex flex-col gap-4 tiptap prose ">
             <div className="w-full p-6 flex items-center justify-center mb-4 lg:border lg:border-gray-300 flex-shrink-0 bg-white border border-neutral-200 rounded-xl relative">
                 {/* {thumbnail !== undefined && <img src={`${process.env.SERVER_URL}/images/thumbnails/${thumbnail}`} className="hidden lg:block w-full h-full object-cover absolute" />} */}
                 <div className="w-full text-3xl text-black text-center p-3 rounded-xl font-bold font-NanumGothic break-words ">
                     {title}
                 </div>
             </div>
-            <div className="p-5 mb-4 text-black shadow-lg rounded-xl flex-grow bg-white border border-neutral-300 break-words" dangerouslySetInnerHTML={{
-                __html: body
-            }} />
+            <div className="flex gap-2 w-full">
+                <div className="p-5 mb-4 text-black shadow-lg rounded-xl flex-grow bg-white border border-neutral-300 break-words lg:w-[60%] lg:shrink-0 lg:flex-grow-0" dangerouslySetInnerHTML={{
+                    __html: body
+                }} />
+                <div>
+                    <Toc body={body} />
+                </div>
+            </div>
+
 
             <div className="pb-20">
                 <h3 className="pl-1 pb-1 text-xl font-bold font-NanumGothic border-b border-b-gray-300 mb-4">댓글</h3>
