@@ -2,6 +2,7 @@ import "./style.scss";
 import Comment from "./Comment"
 import Toc from "./Toc";
 
+
 interface PostProps {
     author: string
     title: string
@@ -39,13 +40,11 @@ function Post({
                     {title}
                 </div>
             </div>
-            <div className="flex gap-2 w-full">
-                <div className="p-5 mb-4 text-black shadow-lg rounded-xl flex-grow bg-white border border-neutral-300 break-words lg:w-[60%] lg:shrink-0 lg:flex-grow-0" dangerouslySetInnerHTML={{
+            <div className="flex gap-1 w-full">
+                <div className="p-5 mb-4 text-black rounded-xl flex-grow bg-white break-words lg:w-[60%] lg:shrink-0" dangerouslySetInnerHTML={{
                     __html: body
                 }} />
-                <div>
-                    <Toc body={body} />
-                </div>
+                <Toc body={body} />
             </div>
 
 
