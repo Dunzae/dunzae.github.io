@@ -1,6 +1,8 @@
 import "./style.scss";
 import Comment from "./Comment"
 import Toc from "./Toc";
+import { useEffect, useMemo, useRef, useState } from "react";
+import parse from "node-html-parser";
 
 
 interface PostProps {
@@ -32,6 +34,21 @@ function Post({
     commentOnSubmit,
     commentOnChange
 }: PostProps) {
+    const ref = useRef<HTMLDivElement>(null);
+    const [newBody, setNewBody] = useState(body);
+
+    useEffect(() => {
+        const root = parse(body);
+        [...root.querySelectorAll("iframe")].map((tag, index) => {
+            if (ref.current !== null) {
+                root.querySelectorAll('iframe')[index].setAttribute("width", "100%");
+                root.querySelectorAll('iframe')[index].setAttribute("height", ref.current.clientWidth.toString() ?? "0");
+            }
+        })
+
+        setNewBody(root.innerHTML);
+    }, [body])
+
     return (
         <div className="p-4 w-full  max-w-full flex-shrink-0 h-full flex flex-col gap-4 tiptap prose ">
             <div className="w-full p-6 flex items-center justify-center mb-4 lg:border lg:border-gray-300 flex-shrink-0 bg-white border border-neutral-200 rounded-xl relative">
@@ -41,9 +58,12 @@ function Post({
                 </div>
             </div>
             <div className="flex gap-1 w-full">
-                <div className="mb-4 box-border text-black rounded-xl bg-white break-words flex-shrink max-w-full lg:p-5 lg:w-[60%] lg:flex-grow lg:shrink-0" dangerouslySetInnerHTML={{
-                    __html: body
-                }} />
+                <div
+                    ref={ref}
+                    className="mb-4 box-content text-black rounded-xl bg-white break-words flex-shrink max-w-full lg:p-5 lg:w-[60%] lg:flex-grow lg:shrink-0"
+                    dangerouslySetInnerHTML={{
+                        __html: newBody
+                    }} />
                 <Toc body={body} />
             </div>
 
