@@ -17,9 +17,9 @@ function Toc({ body }: TocProps) {
         ), [body])
 
     return (
-        <nav aria-label="Table of contents" className="hidden lg:flex lg:justify-end lg:w-full sticky top-6 max-h-[calc(100vh-40px)] overflow-auto border-l border-l-gray-200">
+        <nav aria-label="Table of contents" className={`${table.length === 0 ? "lg:hidden" : "lg:flex"} p-2 box-border hidden lg:justify-end lg:w-full sticky top-6 max-h-[calc(100vh-40px)] overflow-auto border-l border-l-gray-200`}>
             <ul>
-                <h1 className="text-2xl font-bold font-NanumGothic">
+                <h1 className="text-3xl font-bold font-NanumGothic border-b border-b-gray-300 pb-2">
                     목차
                 </h1>
                 {table.map(header =>
