@@ -41,7 +41,7 @@ function Post({
                 </div>
             </div>
             <div className="flex gap-1 w-full">
-                <div className="p-5 mb-4 text-black rounded-xl flex-grow bg-white break-words lg:w-[60%] lg:shrink-0" dangerouslySetInnerHTML={{
+                <div className="mb-4 box-border text-black rounded-xl bg-white break-words flex-shrink max-w-full lg:p-5 lg:w-[60%] lg:flex-grow lg:shrink-0" dangerouslySetInnerHTML={{
                     __html: body
                 }} />
                 <Toc body={body} />
