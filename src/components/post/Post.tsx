@@ -60,7 +60,7 @@ function Post({
             <div className="flex gap-1 w-full">
                 <div
                     ref={ref}
-                    className="mb-4 box-content text-black rounded-xl bg-white break-words flex-shrink max-w-full lg:p-5 lg:w-[60%] lg:flex-grow lg:shrink-0"
+                    className="mb-4 box-content rounded-lg break-words flex-shrink max-w-full lg:p-5 lg:w-[60%] lg:flex-grow lg:flex-shrink-0 text-white bg-black"
                     dangerouslySetInnerHTML={{
                         __html: newBody
                     }} />
